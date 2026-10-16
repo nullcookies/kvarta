@@ -1,0 +1,16 @@
+global:
+  version: 1.x
+  css:
+    theme:
+      styles/core-blocks.css:
+        weight: -2
+      styles/font-faces.css: {  }
+      styles/block-styles.css: {  }
+      styles/theme-the-coffee-shop-patterns.css: {  }
+      styles/theme-bakery-and-pastry-patterns.css: {  }
+variation.default:
+  version: 1.x
+  css:
+    theme:
+      styles/global.css:
+        weight: -1

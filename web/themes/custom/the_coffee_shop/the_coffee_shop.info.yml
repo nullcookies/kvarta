@@ -1,0 +1,17 @@
+name: 'The Coffee Shop'
+description: 'Converted by WordPal from the WordPress theme The Coffee Shop 1.1 by superbaddons. License: GNU General Public License v2 or later. Original: <a href="https://wordpress.org/themes/the-coffee-shop/">https://wordpress.org/themes/the-coffee-shop/</a>, <a href="https://superbthemes.com/bakery-and-pastry/the-coffee-shop/">https://superbthemes.com/bakery-and-pastry/the-coffee-shop/</a>.'
+type: theme
+'base theme': false
+core_version_requirement: ^11.4
+dependencies:
+  - 'wordpal:wordpal'
+libraries:
+  - the_coffee_shop/global
+  - wordpal/drupal_ui
+regions:
+  content: Content
+features:
+  - logo
+  - favicon
+wordpal_variations:
+  default: Default

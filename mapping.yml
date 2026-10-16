@@ -1,0 +1,31 @@
+# Маппинг контента WordPress → Drupal CMS для конвертации темы WordPal.
+#
+# Основа — mapping.yml из галереи WordPal (https://wordpal.tresbien.tech/mapping.yml),
+# адаптирован под контент-модель этого сайта: Drupal CMS starter даёт только тип
+# материала `page` (поля field_content, field_description, field_featured_image,
+# field_tags) и словарь `tags`. Концепции, которым здесь нечего сопоставить,
+# отключены через `~` — иначе конвертация падает на проверке целей:
+#   category  — нет словаря category;
+#   comments  — комментарии на лендинге не нужны;
+#   search    — индекса Search API `content` на сайте нет.
+# Посты блога отключены: типом материала с подходящими полями на сайте есть
+# только `page`, а сопоставление post и page одному и тому же бандлу ломает
+# конвертацию — оба маршрута (single и page) дают один и тот же
+# content template `node.page.full`, который конвертер пытается забрать дважды
+# (второй раз — уже удалённый). Лендингу блог не нужен, поэтому `~`.
+
+post: ~
+post_body: ~
+page: page
+page_body: field_content
+page_excerpt: field_description
+category: ~
+tag:
+  vocabulary: tags
+  field: field_tags
+featured_image: field_featured_image
+excerpt: field_description
+author_biography: ~
+comments: ~
+navigation: main
+search: ~
