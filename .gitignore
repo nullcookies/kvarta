@@ -37,3 +37,10 @@ $RECYCLE.BIN/
 # Per https://getcomposer.org/doc/articles/authentication-for-private-packages.md#authentication-in-auth-json-per-project,
 # this should never be under version control.
 /auth.json
+
+# Локальные ключи OAuth для Canvas CLI (создаются скриптом настройки).
+/.keys
+
+# Логи локальных прогонов DDEV, Canvas CLI и Lighthouse.
+*.log
+
