@@ -1,0 +1,81 @@
+name: Heading
+machineName: heading
+status: true
+required:
+  - textColor
+  - headingElement
+  - headingSize
+  - layout
+props:
+  properties:
+    preHeading:
+      title: Pre Heading
+      type: string
+    heading:
+      title: Heading
+      type: string
+      examples:
+        - Обжариваем в четверг — привозим в пятницу
+    textColor:
+      title: Text Color
+      type: string
+      examples:
+        - dark
+      enum:
+        - dark
+        - light
+        - brand
+        - muted
+      meta:enum:
+        dark: Dark (ink)
+        light: Light (on dark)
+        brand: Brand (caramel)
+        muted: Muted (brown-grey)
+    headingElement:
+      title: Heading Element
+      type: string
+      examples:
+        - h2
+      enum:
+        - h1
+        - h2
+        - h3
+        - h4
+        - h5
+        - h6
+      meta:enum:
+        h1: h1
+        h2: h2
+        h3: h3
+        h4: h4
+        h5: h5
+        h6: h6
+    headingSize:
+      title: Heading Size
+      type: string
+      examples:
+        - large
+      enum:
+        - small
+        - medium
+        - large
+        - extra_large
+      meta:enum:
+        small: Small
+        medium: Medium
+        large: Large
+        extra_large: Extra Large (hero)
+    layout:
+      title: Layout
+      type: string
+      examples:
+        - left_aligned
+      enum:
+        - left_aligned
+        - center_aligned
+        - right_aligned
+      meta:enum:
+        left_aligned: Left aligned
+        center_aligned: Center aligned
+        right_aligned: Right aligned
+slots: {}

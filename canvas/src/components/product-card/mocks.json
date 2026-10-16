@@ -1,0 +1,64 @@
+{
+  "mocks": [
+    {
+      "name": "Эфиопия Иргачеффе",
+      "props": {
+        "name": "Эфиопия Иргачеффе",
+        "description": "цветочный, бергамот, светлая обжарка",
+        "weight": "250 г",
+        "price": "32 BYN",
+        "badge": "светлая обжарка",
+        "image": {
+          "src": "https://images.unsplash.com/photo-1447933601403-0c6688de566e?auto=format&fit=crop&w=1200&q=80",
+          "alt": "Пачка кофе «Эфиопия Иргачеффе» и зёрна",
+          "width": 1200,
+          "height": 900
+        },
+        "link": "/#lead",
+        "linkLabel": "в заявку"
+      }
+    },
+    {
+      "name": "Без фото",
+      "props": {
+        "name": "Бразилия Серрадо",
+        "description": "орех, шоколад, под эспрессо",
+        "weight": "250 г",
+        "price": "26 BYN"
+      }
+    },
+    {
+      "name": "Подписка",
+      "props": {
+        "name": "Подписка",
+        "description": "2 пачки по 250 г раз в месяц, доставка бесплатно",
+        "weight": "2 × 250 г",
+        "price": "54 BYN / мес",
+        "badge": "каждый месяц",
+        "image": {
+          "src": "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1200&q=80",
+          "alt": "Две пачки кофе и чашка на светлом столе",
+          "width": 1200,
+          "height": 900
+        },
+        "link": "/#lead",
+        "linkLabel": "оформить подписку"
+      }
+    },
+    {
+      "name": "Дрип-пакеты",
+      "props": {
+        "name": "Дрип-пакеты, ассорти",
+        "description": "10 штук, чтобы взять кофе в дорогу",
+        "weight": "10 шт",
+        "price": "18 BYN",
+        "image": {
+          "src": "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=1200&q=80",
+          "alt": "Дрип-пакеты с кофе на тёмном столе",
+          "width": 1200,
+          "height": 900
+        }
+      }
+    }
+  ]
+}

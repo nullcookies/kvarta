@@ -1,0 +1,19 @@
+name: Fact Item
+machineName: fact-item
+status: true
+required:
+  - value
+  - label
+props:
+  properties:
+    value:
+      title: Value
+      type: string
+      examples:
+        - 5 кг
+    label:
+      title: Label
+      type: string
+      examples:
+        - размер партии
+slots: {}

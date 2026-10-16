@@ -1,0 +1,157 @@
+/*
+ * Дизайн-токены лендинга обжарки «Кварта».
+ *
+ * Источник — тема The Coffee Shop (WordPal-конвертация WP block theme
+ * the-coffee-shop 1.1, theme.json): тёплая карамель, тёмный шоколад,
+ * светлый беж, Oswald для заголовков и Open Sans для текста.
+ *
+ * Токены из @theme автоматически становятся utility-классами Tailwind:
+ * --color-primary-500 -> bg-primary-500 / text-primary-500 / border-primary-500.
+ */
+
+@import 'tailwindcss';
+
+@theme {
+  /* Шрифты: заголовки — Oswald (uppercase), текст — Open Sans. */
+  --font-sans:
+    'Open Sans', 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --font-heading: 'Oswald', 'Open Sans', 'Arial Narrow', sans-serif;
+
+  /* Карамельная шкала: primary-500 = Primary из темы, primary-700 = Featured. */
+  --color-primary-50: #fbf7f2;
+  --color-primary-100: #f5ece0;
+  --color-primary-200: #ecdcc6;
+  --color-primary-300: #ddc4a3;
+  --color-primary-400: #d2b189;
+  --color-primary-500: #c7a17a;
+  --color-primary-600: #b98f66;
+  --color-primary-700: #aa8865;
+  --color-primary-800: #7c6247;
+  --color-primary-900: #403425;
+
+  /* Тёмный шоколад и текст. */
+  --color-mono-1: #30271c;
+  --color-mono-2: #62513c;
+  --color-mono-3: #62513c;
+  --color-mono-4: #ebe7de;
+
+  /* Семантические алиасы: ими пользуются компоненты. */
+  --color-ink: var(--color-mono-1);
+  --color-body: var(--color-mono-2);
+  --color-cream: var(--color-mono-4);
+  --color-brand: var(--color-primary-500);
+  --color-brand-dark: var(--color-primary-900);
+  /* Карамель для мелкого текста на светлом фоне: у primary-500 контраст с
+     белым всего ~2,2:1, поэтому надзаголовки и метки используют этот тон. */
+  --color-accent-ink: #7c6247;
+  /* Приглушённый текст: затемнён до контраста ≥ 4,5:1 на белом и на бежевом. */
+  --color-muted: #6f6353;
+
+  /* Ошибки формы: тёплый кирпич, заметный на бежевом и белом. */
+  --color-danger: #a3372a;
+  --color-danger-dark: #7d271d;
+  --color-danger-soft: #f7e4df;
+
+  /* Нейтральные. */
+  --color-white: #ffffff;
+  --color-black: #000000;
+
+  /* Ритм секций: 1200px контента и щедрые вертикальные отступы темы. */
+  --container-content: 1200px;
+}
+
+/*
+ * Базовые стили держим в @layer base: иначе они вне слоёв перебивают
+ * utility-классы Tailwind (тот же эффект, что даёт нелейерный CSS темы),
+ * и, например, цвет заголовка на тёмной секции перестаёт работать.
+ */
+@layer base {
+  html {
+    @apply text-mono-1;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-white font-sans text-mono-2;
+  }
+
+  /* Заголовки темы — Oswald, в верхнем регистре, плотный межстрочный. */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-heading text-mono-1 uppercase;
+    letter-spacing: 0.01em;
+  }
+}
+
+/* Уважаем настройку «меньше движения». */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+/*
+ * Цвет в руках редактора Canvas.
+ *
+ * Тема The Coffee Shop пришла из WordPress через WordPal и подключает свои
+ * стили без @layer. По спецификации CSS нелейерные правила сильнее любых
+ * слоёв, поэтому цвета темы (заголовки, ссылки, абзацы) перебивали утилиты
+ * Tailwind: h1 на тёмном фото оставался тёмным с классом text-white, а
+ * карамельная кнопка получала цвет ссылки темы и теряла контраст.
+ * Этот блок тоже вне слоёв и возвращает приоритет нашим утилитам.
+ */
+.text-white {
+  color: var(--color-white) !important;
+}
+
+.text-ink {
+  color: var(--color-ink) !important;
+}
+
+.text-brand {
+  color: var(--color-brand) !important;
+}
+
+.text-accent-ink {
+  color: var(--color-accent-ink) !important;
+}
+
+.text-body {
+  color: var(--color-body) !important;
+}
+
+.text-muted {
+  color: var(--color-muted) !important;
+}
+
+.text-cream {
+  color: var(--color-cream) !important;
+}
+
+.text-primary-200 {
+  color: var(--color-primary-200) !important;
+}
+
+.text-primary-300 {
+  color: var(--color-primary-300) !important;
+}
+
+.text-danger {
+  color: var(--color-danger) !important;
+}
+
+.text-danger-dark {
+  color: var(--color-danger-dark) !important;
+}

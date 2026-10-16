@@ -1,0 +1,76 @@
+{
+  "mocks": [
+    {
+      "name": "Outline dark",
+      "props": {
+        "variant": "outline_dark",
+        "text": "Посмотреть кофе",
+        "link": "/assortment"
+      }
+    },
+    {
+      "name": "Outline light",
+      "props": {
+        "variant": "outline_light",
+        "text": "Оформить подписку",
+        "link": "/subscription"
+      }
+    },
+    {
+      "name": "Ghost neutral",
+      "props": {
+        "variant": "ghost_neutral",
+        "text": "Подробнее о доставке",
+        "link": "/delivery"
+      }
+    },
+    {
+      "name": "Ghost light",
+      "props": {
+        "variant": "ghost_light",
+        "text": "Посмотреть кофе",
+        "link": "/assortment"
+      }
+    },
+    {
+      "name": "Link",
+      "props": {
+        "variant": "link",
+        "text": "Оформить заявку",
+        "link": "/lead"
+      }
+    },
+    {
+      "name": "Link underline",
+      "props": {
+        "variant": "link_underline",
+        "text": "Позвонить нам",
+        "link": "tel:+375291234567"
+      }
+    },
+    {
+      "name": "Link dark",
+      "props": {
+        "variant": "link_dark",
+        "text": "Кофе",
+        "link": "/assortment"
+      }
+    },
+    {
+      "name": "Link light",
+      "props": {
+        "variant": "link_light",
+        "text": "Контакты",
+        "link": "/contacts"
+      }
+    },
+    {
+      "name": "Nav link dark",
+      "props": {
+        "variant": "nav_link_dark",
+        "text": "Доставка",
+        "link": "/delivery"
+      }
+    }
+  ]
+}

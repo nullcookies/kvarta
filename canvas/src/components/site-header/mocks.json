@@ -1,0 +1,103 @@
+{
+  "mocks": [
+    {
+      "name": "Sticky with menu",
+      "props": {
+        "brand": "КВАРТА",
+        "tagline": "обжарка кофе · Минск",
+        "phone": "+375 (29) 123-45-67",
+        "phoneLink": "tel:+375291234567",
+        "ctaText": "Оставить заявку",
+        "ctaLink": "/#lead",
+        "sticky": true
+      },
+      "slots": {
+        "navigation": ["header-nav"]
+      },
+      "elements": {
+        "header-nav": {
+          "type": "nav-links",
+          "props": {
+            "alignment": "center_aligned",
+            "textColor": "dark"
+          },
+          "slots": {
+            "items": [
+              "nav-coffee",
+              "nav-subscription",
+              "nav-delivery",
+              "nav-contacts"
+            ]
+          }
+        },
+        "nav-coffee": {
+          "type": "nav-link",
+          "props": {
+            "label": "Кофе",
+            "link": "/#assortment"
+          }
+        },
+        "nav-subscription": {
+          "type": "nav-link",
+          "props": {
+            "label": "Подписка",
+            "link": "/#subscription"
+          }
+        },
+        "nav-delivery": {
+          "type": "nav-link",
+          "props": {
+            "label": "Доставка",
+            "link": "/#delivery"
+          }
+        },
+        "nav-contacts": {
+          "type": "nav-link",
+          "props": {
+            "label": "Контакты",
+            "link": "/#lead"
+          }
+        }
+      }
+    },
+    {
+      "name": "Phone only, no CTA",
+      "props": {
+        "brand": "КВАРТА",
+        "tagline": "обжарка кофе · Минск",
+        "phone": "+375 (29) 123-45-67",
+        "phoneLink": "tel:+375291234567",
+        "sticky": false
+      },
+      "slots": {
+        "navigation": ["header-nav"]
+      },
+      "elements": {
+        "header-nav": {
+          "type": "nav-links",
+          "props": {
+            "alignment": "right_aligned",
+            "textColor": "dark"
+          },
+          "slots": {
+            "items": ["nav-coffee", "nav-contacts"]
+          }
+        },
+        "nav-coffee": {
+          "type": "nav-link",
+          "props": {
+            "label": "Кофе",
+            "link": "/#assortment"
+          }
+        },
+        "nav-contacts": {
+          "type": "nav-link",
+          "props": {
+            "label": "Контакты",
+            "link": "/#lead"
+          }
+        }
+      }
+    }
+  ]
+}

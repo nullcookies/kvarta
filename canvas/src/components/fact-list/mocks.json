@@ -1,0 +1,103 @@
+{
+  "mocks": [
+    {
+      "name": "Три факта на тёмном фоне",
+      "props": {
+        "columns": "3",
+        "textColor": "light"
+      },
+      "slots": {
+        "items": ["fact-batch", "fact-roast", "fact-delivery"]
+      },
+      "elements": {
+        "fact-batch": {
+          "type": "fact-item",
+          "props": {
+            "value": "5 кг",
+            "label": "размер партии"
+          }
+        },
+        "fact-roast": {
+          "type": "fact-item",
+          "props": {
+            "value": "1–3 дня",
+            "label": "от роастера до чашки"
+          }
+        },
+        "fact-delivery": {
+          "type": "fact-item",
+          "props": {
+            "value": "пятница",
+            "label": "развоз по Минску"
+          }
+        }
+      }
+    },
+    {
+      "name": "Четыре факта, тёмный текст",
+      "props": {
+        "columns": "4",
+        "textColor": "dark"
+      },
+      "slots": {
+        "items": ["fact-batch", "fact-roast", "fact-delivery", "fact-pickup"]
+      },
+      "elements": {
+        "fact-batch": {
+          "type": "fact-item",
+          "props": {
+            "value": "5 кг",
+            "label": "размер партии"
+          }
+        },
+        "fact-roast": {
+          "type": "fact-item",
+          "props": {
+            "value": "по четвергам",
+            "label": "обжарка"
+          }
+        },
+        "fact-delivery": {
+          "type": "fact-item",
+          "props": {
+            "value": "пятница",
+            "label": "развоз по Минску"
+          }
+        },
+        "fact-pickup": {
+          "type": "fact-item",
+          "props": {
+            "value": "ул. Короля, 9",
+            "label": "самовывоз"
+          }
+        }
+      }
+    },
+    {
+      "name": "Два факта",
+      "props": {
+        "columns": "2",
+        "textColor": "dark"
+      },
+      "slots": {
+        "items": ["fact-batch", "fact-pickup"]
+      },
+      "elements": {
+        "fact-batch": {
+          "type": "fact-item",
+          "props": {
+            "value": "5 кг",
+            "label": "размер партии"
+          }
+        },
+        "fact-pickup": {
+          "type": "fact-item",
+          "props": {
+            "value": "ул. Короля, 9",
+            "label": "самовывоз, вход со двора"
+          }
+        }
+      }
+    }
+  ]
+}

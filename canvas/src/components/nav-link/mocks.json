@@ -1,0 +1,18 @@
+{
+  "mocks": [
+    {
+      "name": "External link",
+      "props": {
+        "label": "Telegram",
+        "link": "https://t.me/kvarta"
+      }
+    },
+    {
+      "name": "Phone link",
+      "props": {
+        "label": "+375 (29) 123-45-67",
+        "link": "tel:+375291234567"
+      }
+    }
+  ]
+}

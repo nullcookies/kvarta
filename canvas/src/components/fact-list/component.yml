@@ -1,0 +1,35 @@
+name: Fact List
+machineName: fact-list
+status: true
+required:
+  - columns
+  - textColor
+props:
+  properties:
+    columns:
+      title: Columns
+      type: string
+      enum:
+        - '2'
+        - '3'
+        - '4'
+      meta:enum:
+        '2': '2'
+        '3': '3'
+        '4': '4'
+      examples:
+        - '3'
+    textColor:
+      title: Text Color
+      type: string
+      enum:
+        - light
+        - dark
+      meta:enum:
+        light: Light
+        dark: Dark
+      examples:
+        - light
+slots:
+  items:
+    title: Facts

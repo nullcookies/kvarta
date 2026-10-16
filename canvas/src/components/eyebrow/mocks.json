@@ -1,0 +1,25 @@
+{
+  "mocks": [
+    {
+      "name": "Brand on cream",
+      "props": {
+        "text": "Ассортимент",
+        "textColor": "brand"
+      }
+    },
+    {
+      "name": "Muted on white",
+      "props": {
+        "text": "Доставка и самовывоз",
+        "textColor": "muted"
+      }
+    },
+    {
+      "name": "Light on dark",
+      "props": {
+        "text": "Подписка",
+        "textColor": "light"
+      }
+    }
+  ]
+}

@@ -1,0 +1,63 @@
+{
+  "status": true,
+  "elements": {
+    "site-header": {
+      "type": "js.site-header",
+      "props": {
+        "brand": "КВАРТА",
+        "tagline": "обжарка кофе · Минск",
+        "phone": "+375 (29) 123-45-67",
+        "phoneLink": "tel:+375291234567",
+        "ctaText": "Оставить заявку",
+        "ctaLink": "#lead",
+        "sticky": true
+      },
+      "slots": {
+        "navigation": ["header-nav"]
+      }
+    },
+    "header-nav": {
+      "type": "js.nav-links",
+      "props": {
+        "alignment": "right_aligned",
+        "textColor": "dark"
+      },
+      "slots": {
+        "items": [
+          "header-nav-assortment",
+          "header-nav-subscription",
+          "header-nav-delivery",
+          "header-nav-contacts"
+        ]
+      }
+    },
+    "header-nav-assortment": {
+      "type": "js.nav-link",
+      "props": {
+        "label": "Кофе",
+        "link": "#assortment"
+      }
+    },
+    "header-nav-subscription": {
+      "type": "js.nav-link",
+      "props": {
+        "label": "Подписка",
+        "link": "#subscription"
+      }
+    },
+    "header-nav-delivery": {
+      "type": "js.nav-link",
+      "props": {
+        "label": "Доставка",
+        "link": "#delivery"
+      }
+    },
+    "header-nav-contacts": {
+      "type": "js.nav-link",
+      "props": {
+        "label": "Контакты",
+        "link": "#lead"
+      }
+    }
+  }
+}

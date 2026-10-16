@@ -1,0 +1,68 @@
+name: Lead form
+machineName: lead-form
+status: true
+required:
+  - heading
+  - submitLabel
+  - successMessage
+  - errorMessage
+  - phoneFallback
+props:
+  properties:
+    heading:
+      title: Heading
+      type: string
+      examples:
+        - Оставьте заявку — перезвоним
+    intro:
+      title: Intro
+      type: string
+      contentMediaType: text/html
+      x-formatting-context: block
+      examples:
+        - >-
+          <p>Менеджер уточнит детали и подтвердит заказ. Звоним в рабочее время:
+          пн–пт 8:00–20:00, сб–вс 10:00–18:00.</p>
+    submitLabel:
+      title: Submit Label
+      type: string
+      examples:
+        - Отправить заявку
+    successMessage:
+      title: Success Message
+      type: string
+      examples:
+        - >-
+          Спасибо! Заявка принята — перезвоним в рабочее время и подтвердим
+          детали.
+    errorMessage:
+      title: Error Message
+      type: string
+      examples:
+        - >-
+          Не получилось отправить заявку. Позвоните нам: +375 (29) 123-45-67 —
+          или попробуйте ещё раз.
+    privacyNote:
+      title: Privacy Note
+      type: string
+      examples:
+        - >-
+          Отправляя форму, вы соглашаетесь на обработку персональных данных.
+          Кофе привезём только по Минску.
+    phoneFallback:
+      title: Phone Fallback
+      type: string
+      examples:
+        - +375 (29) 123-45-67
+    endpoint:
+      title: Endpoint
+      type: string
+      format: uri-reference
+      examples:
+        - /api/lead
+    interestLabel:
+      title: Interest Label
+      type: string
+      examples:
+        - Что интересует
+slots: {}

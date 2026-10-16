@@ -1,0 +1,48 @@
+name: Site footer
+machineName: site-footer
+status: true
+required:
+  - brand
+props:
+  properties:
+    brand:
+      title: Brand
+      type: string
+      examples:
+        - КВАРТА
+    address:
+      title: Address
+      type: string
+      examples:
+        - Минск, ул. Короля, 9 (вход со двора)
+    hours:
+      title: Hours
+      type: string
+      examples:
+        - пн–пт 8:00–20:00, сб–вс 10:00–18:00
+    phone:
+      title: Phone
+      type: string
+      examples:
+        - +375 (29) 123-45-67
+    phoneLink:
+      title: Phone Link
+      type: string
+      format: uri-reference
+      examples:
+        - tel:+375291234567
+    email:
+      title: Email
+      type: string
+      examples:
+        - hello@kvarta.by
+    copyright:
+      title: Copyright
+      type: string
+      examples:
+        - © 2026 «Кварта». Кофе обжаривают Аня и Дмитрий.
+slots:
+  navigation:
+    title: Navigation
+  social:
+    title: Social

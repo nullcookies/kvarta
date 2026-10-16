@@ -1,0 +1,206 @@
+{
+  "mocks": [
+    {
+      "name": "Text then image",
+      "props": {
+        "image": {
+          "src": "https://placehold.co/800x600@2x.png",
+          "alt": "Пример изображения",
+          "width": 800,
+          "height": 600
+        },
+        "layout": "text_image",
+        "columnWidths": "50_50",
+        "preHeading": "Кто мы",
+        "heading": "Кофе — скоропортящийся продукт",
+        "headingElement": "h2",
+        "headingSize": "large",
+        "text": "<p>После обжарки зерно живёт неделями, а не месяцами: аромат уходит первым. Поэтому мы не держим склад.</p>",
+        "textColor": "dark"
+      },
+      "slots": {
+        "buttons": ["primary-button", "secondary-button"]
+      },
+      "elements": {
+        "primary-button": {
+          "type": "button",
+          "props": {
+            "text": "Оформить заявку",
+            "variant": "solid",
+            "link": "/lead"
+          }
+        },
+        "secondary-button": {
+          "type": "button",
+          "props": {
+            "text": "Посмотреть кофе",
+            "variant": "outline_dark",
+            "link": "/assortment"
+          }
+        }
+      }
+    },
+    {
+      "name": "Image then text",
+      "props": {
+        "image": {
+          "src": "https://placehold.co/800x600@2x.png",
+          "alt": "Пример изображения",
+          "width": 800,
+          "height": 600
+        },
+        "layout": "image_text",
+        "columnWidths": "50_50",
+        "preHeading": "Подписка",
+        "heading": "Свежая пачка у двери каждый месяц",
+        "headingElement": "h2",
+        "headingSize": "large",
+        "text": "<p>Две пачки по 250 г раз в месяц — 54 BYN. Пропустить месяц можно одним сообщением.</p>",
+        "textColor": "dark"
+      },
+      "slots": {
+        "buttons": ["primary-button"]
+      },
+      "elements": {
+        "primary-button": {
+          "type": "button",
+          "props": {
+            "text": "Оформить подписку",
+            "variant": "solid",
+            "link": "/lead"
+          }
+        }
+      }
+    },
+    {
+      "name": "Narrow text column",
+      "props": {
+        "image": {
+          "src": "https://placehold.co/800x600@2x.png",
+          "alt": "Пример изображения",
+          "width": 800,
+          "height": 600
+        },
+        "layout": "text_image",
+        "columnWidths": "33_66",
+        "preHeading": "Мастерская",
+        "heading": "Обжарка по четвергам",
+        "headingElement": "h2",
+        "headingSize": "large",
+        "text": "<p>Заказы собираем до среды, 18:00. В пятницу развозим по Минску.</p>",
+        "textColor": "dark"
+      },
+      "slots": {
+        "buttons": ["primary-button"]
+      },
+      "elements": {
+        "primary-button": {
+          "type": "button",
+          "props": {
+            "text": "Как забрать кофе",
+            "variant": "outline_dark",
+            "link": "/delivery"
+          }
+        }
+      }
+    },
+    {
+      "name": "Wide text column",
+      "props": {
+        "image": {
+          "src": "https://placehold.co/800x600@2x.png",
+          "alt": "Пример изображения",
+          "width": 800,
+          "height": 600
+        },
+        "layout": "text_image",
+        "columnWidths": "66_33",
+        "preHeading": "Оплата",
+        "heading": "Наличными или картой при получении",
+        "headingElement": "h2",
+        "headingSize": "large",
+        "text": "<p>Для организаций — счёт и перевод. Онлайн-оплаты нет: заказ подтверждает менеджер.</p>",
+        "textColor": "dark"
+      },
+      "slots": {
+        "buttons": ["primary-button"]
+      },
+      "elements": {
+        "primary-button": {
+          "type": "button",
+          "props": {
+            "text": "Оставить заявку",
+            "variant": "solid",
+            "link": "/lead"
+          }
+        }
+      }
+    },
+    {
+      "name": "Light on dark",
+      "props": {
+        "image": {
+          "src": "https://placehold.co/800x600@2x.png",
+          "alt": "Пример изображения",
+          "width": 800,
+          "height": 600
+        },
+        "layout": "image_text",
+        "columnWidths": "50_50",
+        "preHeading": "Подписка",
+        "heading": "Свежая пачка у двери каждый месяц",
+        "headingElement": "h2",
+        "headingSize": "extra_large",
+        "text": "<p>Две пачки по 250 г раз в месяц — 54 BYN. Привозим бесплатно.</p>",
+        "textColor": "light"
+      },
+      "slots": {
+        "buttons": ["primary-button", "secondary-button"]
+      },
+      "elements": {
+        "primary-button": {
+          "type": "button",
+          "props": {
+            "text": "Оформить подписку",
+            "variant": "solid",
+            "link": "/lead"
+          }
+        },
+        "secondary-button": {
+          "type": "button",
+          "props": {
+            "text": "Узнать подробнее",
+            "variant": "outline_light",
+            "link": "/subscription"
+          }
+        }
+      }
+    },
+    {
+      "name": "Text only",
+      "props": {
+        "layout": "text_image",
+        "columnWidths": "50_50",
+        "preHeading": "Доставка и самовывоз",
+        "heading": "Как забрать кофе",
+        "headingElement": "h2",
+        "headingSize": "large",
+        "text": "<p>Минск, ул. Короля, 9 (вход со двора). Пн–пт 8:00–20:00, сб–вс 10:00–18:00.</p>",
+        "textColor": "dark"
+      },
+      "slots": {
+        "buttons": ["primary-button"]
+      },
+      "elements": {
+        "primary-button": {
+          "type": "button",
+          "props": {
+            "text": "Оставить заявку",
+            "variant": "solid",
+            "link": "/lead"
+          }
+        }
+      }
+    }
+  ]
+}

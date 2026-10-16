@@ -1,0 +1,75 @@
+{
+  "mocks": [
+    {
+      "name": "Dark and left aligned",
+      "props": {
+        "alignment": "left_aligned",
+        "textColor": "dark"
+      },
+      "slots": {
+        "items": [
+          "nav-coffee",
+          "nav-subscription",
+          "nav-delivery",
+          "nav-contacts"
+        ]
+      },
+      "elements": {
+        "nav-coffee": {
+          "type": "nav-link",
+          "props": {
+            "label": "Кофе",
+            "link": "/#assortment"
+          }
+        },
+        "nav-subscription": {
+          "type": "nav-link",
+          "props": {
+            "label": "Подписка",
+            "link": "/#subscription"
+          }
+        },
+        "nav-delivery": {
+          "type": "nav-link",
+          "props": {
+            "label": "Доставка",
+            "link": "/#delivery"
+          }
+        },
+        "nav-contacts": {
+          "type": "nav-link",
+          "props": {
+            "label": "Контакты",
+            "link": "/#lead"
+          }
+        }
+      }
+    },
+    {
+      "name": "Light on dark, centered",
+      "props": {
+        "alignment": "center_aligned",
+        "textColor": "light"
+      },
+      "slots": {
+        "items": ["nav-footer-coffee", "nav-footer-subscription"]
+      },
+      "elements": {
+        "nav-footer-coffee": {
+          "type": "nav-link",
+          "props": {
+            "label": "Кофе",
+            "link": "/#assortment"
+          }
+        },
+        "nav-footer-subscription": {
+          "type": "nav-link",
+          "props": {
+            "label": "Подписка",
+            "link": "/#subscription"
+          }
+        }
+      }
+    }
+  ]
+}

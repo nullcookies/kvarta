@@ -1,0 +1,72 @@
+{
+  "mocks": [
+    {
+      "name": "Cream with anchor",
+      "props": {
+        "background": "cream",
+        "verticalPadding": "medium",
+        "width": "normal",
+        "anchor": "assortment"
+      },
+      "slots": {
+        "content": ["section-card"]
+      },
+      "elements": {
+        "section-card": {
+          "type": "card",
+          "props": {
+            "layout": "left_aligned",
+            "linkVariant": "link",
+            "heading": "Что обжариваем на этой неделе",
+            "text": "<p>Помол подберём под ваш способ заваривания.</p>"
+          }
+        }
+      }
+    },
+    {
+      "name": "Dark full width",
+      "props": {
+        "background": "dark",
+        "verticalPadding": "large",
+        "width": "wide"
+      },
+      "slots": {
+        "content": ["section-card"]
+      },
+      "elements": {
+        "section-card": {
+          "type": "card",
+          "props": {
+            "layout": "left_aligned",
+            "linkVariant": "link",
+            "textColor": "Light",
+            "heading": "Свежая пачка у двери каждый месяц",
+            "text": "<p>Две пачки по 250 г раз в месяц — 54 BYN.</p>"
+          }
+        }
+      }
+    },
+    {
+      "name": "Brand accent strip",
+      "props": {
+        "background": "brand",
+        "verticalPadding": "small",
+        "width": "normal"
+      },
+      "slots": {
+        "content": ["section-card"]
+      },
+      "elements": {
+        "section-card": {
+          "type": "card",
+          "props": {
+            "layout": "center_aligned",
+            "linkVariant": "link",
+            "heading": "Партии по 5 кг",
+            "text": "<p>Обжариваем небольшими партиями.</p>"
+          }
+        }
+      }
+    }
+  ]
+}

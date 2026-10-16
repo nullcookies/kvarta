@@ -1,0 +1,113 @@
+{
+  "mocks": [
+    {
+      "name": "Full contacts",
+      "props": {
+        "brand": "КВАРТА",
+        "address": "Минск, ул. Короля, 9 (вход со двора)",
+        "hours": "пн–пт 8:00–20:00, сб–вс 10:00–18:00",
+        "phone": "+375 (29) 123-45-67",
+        "phoneLink": "tel:+375291234567",
+        "email": "hello@kvarta.by",
+        "copyright": "© 2026 «Кварта». Кофе обжаривают Аня и Дмитрий."
+      },
+      "slots": {
+        "navigation": ["footer-nav"],
+        "social": ["footer-social"]
+      },
+      "elements": {
+        "footer-nav": {
+          "type": "nav-links",
+          "props": {
+            "alignment": "left_aligned",
+            "textColor": "light"
+          },
+          "slots": {
+            "items": ["nav-coffee", "nav-subscription", "nav-delivery"]
+          }
+        },
+        "nav-coffee": {
+          "type": "nav-link",
+          "props": {
+            "label": "Кофе",
+            "link": "/#assortment"
+          }
+        },
+        "nav-subscription": {
+          "type": "nav-link",
+          "props": {
+            "label": "Подписка",
+            "link": "/#subscription"
+          }
+        },
+        "nav-delivery": {
+          "type": "nav-link",
+          "props": {
+            "label": "Доставка",
+            "link": "/#delivery"
+          }
+        },
+        "footer-social": {
+          "type": "nav-links",
+          "props": {
+            "alignment": "left_aligned",
+            "textColor": "light"
+          },
+          "slots": {
+            "items": ["social-instagram", "social-telegram"]
+          }
+        },
+        "social-instagram": {
+          "type": "nav-link",
+          "props": {
+            "label": "Instagram",
+            "link": "https://instagram.com/kvarta"
+          }
+        },
+        "social-telegram": {
+          "type": "nav-link",
+          "props": {
+            "label": "Telegram",
+            "link": "https://t.me/kvarta"
+          }
+        }
+      }
+    },
+    {
+      "name": "Navigation only",
+      "props": {
+        "brand": "КВАРТА",
+        "copyright": "© 2026 «Кварта». Кофе обжаривают Аня и Дмитрий."
+      },
+      "slots": {
+        "navigation": ["footer-nav"]
+      },
+      "elements": {
+        "footer-nav": {
+          "type": "nav-links",
+          "props": {
+            "alignment": "left_aligned",
+            "textColor": "light"
+          },
+          "slots": {
+            "items": ["nav-coffee", "nav-contacts"]
+          }
+        },
+        "nav-coffee": {
+          "type": "nav-link",
+          "props": {
+            "label": "Кофе",
+            "link": "/#assortment"
+          }
+        },
+        "nav-contacts": {
+          "type": "nav-link",
+          "props": {
+            "label": "Контакты",
+            "link": "/#lead"
+          }
+        }
+      }
+    }
+  ]
+}

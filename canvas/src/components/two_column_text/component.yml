@@ -1,0 +1,112 @@
+name: Two Column Text
+machineName: two_column_text
+status: true
+required:
+  - layout
+  - columnWidths
+  - headingElement
+  - headingSize
+  - textColor
+props:
+  properties:
+    image:
+      title: Image
+      type: object
+      examples:
+        - src: >-
+            https://placehold.co/800x600@2x.png?alternateWidths=https%3A%2F%2Fplacehold.co%2F%7Bwidth%7Dx%7Bheight%7D%402x.png
+          alt: Example image placeholder
+          width: 800
+          height: 600
+      $ref: json-schema-definitions://canvas.module/image
+    layout:
+      title: Layout
+      type: string
+      examples:
+        - text_image
+      enum:
+        - text_image
+        - image_text
+      meta:enum:
+        text_image: Text - Image
+        image_text: Image - Text
+    columnWidths:
+      title: Column Widths
+      type: string
+      examples:
+        - '50_50'
+      enum:
+        - '33_66'
+        - '50_50'
+        - '66_33'
+      meta:enum:
+        '33_66': Text 33% - Image 66%
+        '50_50': Text 50% - Image 50%
+        '66_33': Text 66% - Image 33%
+    preHeading:
+      title: Pre Heading
+      type: string
+      examples:
+        - Кто мы
+    heading:
+      title: Heading
+      type: string
+      examples:
+        - Кофе — скоропортящийся продукт
+    headingElement:
+      title: Heading Element
+      type: string
+      examples:
+        - h2
+      enum:
+        - h1
+        - h2
+        - h3
+        - h4
+        - h5
+        - h6
+      meta:enum:
+        h1: h1
+        h2: h2
+        h3: h3
+        h4: h4
+        h5: h5
+        h6: h6
+    headingSize:
+      title: Heading Size
+      type: string
+      examples:
+        - large
+      enum:
+        - extra_large
+        - large
+        - medium
+        - small
+      meta:enum:
+        extra_large: Extra Large
+        large: Large
+        medium: Medium
+        small: Small
+    text:
+      title: Text
+      type: string
+      examples:
+        - >-
+          После обжарки зерно живёт неделями, а не месяцами: аромат уходит
+          первым. Поэтому мы не держим склад.
+      contentMediaType: text/html
+      x-formatting-context: block
+    textColor:
+      title: Text Color
+      type: string
+      examples:
+        - dark
+      enum:
+        - dark
+        - light
+      meta:enum:
+        dark: Dark (ink)
+        light: Light (on dark)
+slots:
+  buttons:
+    title: Buttons

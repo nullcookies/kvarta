@@ -1,0 +1,58 @@
+name: Section
+machineName: section
+status: true
+required:
+  - background
+  - verticalPadding
+  - width
+props:
+  properties:
+    background:
+      title: Background
+      type: string
+      examples:
+        - base
+      enum:
+        - base
+        - cream
+        - dark
+        - brand
+      meta:enum:
+        base: Base (white)
+        cream: Cream (beige)
+        dark: Dark (ink)
+        brand: Brand (caramel)
+    verticalPadding:
+      title: Vertical Padding
+      type: string
+      examples:
+        - medium
+      enum:
+        - none
+        - small
+        - medium
+        - large
+      meta:enum:
+        none: None
+        small: Small
+        medium: Medium
+        large: Large
+    width:
+      title: Width
+      type: string
+      examples:
+        - normal
+      enum:
+        - normal
+        - wide
+      meta:enum:
+        normal: Normal (1200px)
+        wide: Wide (full width)
+    anchor:
+      title: Anchor
+      type: string
+      examples:
+        - assortment
+slots:
+  content:
+    title: Content

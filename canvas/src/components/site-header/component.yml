@@ -1,0 +1,47 @@
+name: Site header
+machineName: site-header
+status: true
+required:
+  - brand
+props:
+  properties:
+    brand:
+      title: Brand
+      type: string
+      examples:
+        - КВАРТА
+    tagline:
+      title: Tagline
+      type: string
+      examples:
+        - обжарка кофе · Минск
+    phone:
+      title: Phone
+      type: string
+      examples:
+        - +375 (29) 123-45-67
+    phoneLink:
+      title: Phone Link
+      type: string
+      format: uri-reference
+      examples:
+        - tel:+375291234567
+    ctaText:
+      title: CTA Text
+      type: string
+      examples:
+        - Оставить заявку
+    ctaLink:
+      title: CTA Link
+      type: string
+      format: uri-reference
+      examples:
+        - /#lead
+    sticky:
+      title: Sticky
+      type: boolean
+      examples:
+        - false
+slots:
+  navigation:
+    title: Navigation

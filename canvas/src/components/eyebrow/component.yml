@@ -1,0 +1,29 @@
+name: Eyebrow
+machineName: eyebrow
+status: true
+required:
+  - text
+  - textColor
+props:
+  properties:
+    text:
+      title: Text
+      type: string
+      examples:
+        - Обжарка кофе в Минске с 2019 года
+    textColor:
+      title: Text Color
+      type: string
+      examples:
+        - accent
+      enum:
+        - accent
+        - brand
+        - muted
+        - light
+      meta:enum:
+        accent: Accent (dark caramel, for light backgrounds)
+        brand: Brand (caramel, for dark backgrounds)
+        muted: Muted (brown-grey)
+        light: Light (on dark)
+slots: {}

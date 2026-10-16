@@ -1,0 +1,75 @@
+{
+  "mocks": [
+    {
+      "name": "Hero",
+      "props": {
+        "heading": "Обжариваем в четверг — привозим в пятницу",
+        "textColor": "light",
+        "headingElement": "h1",
+        "headingSize": "extra_large",
+        "layout": "left_aligned"
+      }
+    },
+    {
+      "name": "Large section heading",
+      "props": {
+        "heading": "Кофе — скоропортящийся продукт",
+        "textColor": "dark",
+        "headingElement": "h2",
+        "headingSize": "large",
+        "layout": "left_aligned"
+      }
+    },
+    {
+      "name": "Small card heading",
+      "props": {
+        "heading": "Самовывоз",
+        "textColor": "dark",
+        "headingElement": "h3",
+        "headingSize": "small",
+        "layout": "left_aligned"
+      }
+    },
+    {
+      "name": "Centered",
+      "props": {
+        "heading": "Как забрать кофе",
+        "textColor": "dark",
+        "headingElement": "h2",
+        "headingSize": "medium",
+        "layout": "center_aligned"
+      }
+    },
+    {
+      "name": "Brand color",
+      "props": {
+        "heading": "Что обжариваем на этой неделе",
+        "textColor": "brand",
+        "headingElement": "h2",
+        "headingSize": "large",
+        "layout": "left_aligned"
+      }
+    },
+    {
+      "name": "Muted",
+      "props": {
+        "heading": "Кто мы",
+        "textColor": "muted",
+        "headingElement": "h2",
+        "headingSize": "small",
+        "layout": "left_aligned"
+      }
+    },
+    {
+      "name": "With pre-heading",
+      "props": {
+        "preHeading": "Подписка",
+        "heading": "Свежая пачка у двери каждый месяц",
+        "textColor": "dark",
+        "headingElement": "h2",
+        "headingSize": "large",
+        "layout": "left_aligned"
+      }
+    }
+  ]
+}

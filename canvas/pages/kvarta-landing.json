@@ -1,0 +1,642 @@
+{
+  "title": "Кварта — обжарка кофе в Минске",
+  "path": "/kvarta",
+  "description": "Мастерская Ани и Дмитрия: партии по 5 кг, зерно у вас на 1–3 день после обжарки. Подписка 54 BYN/мес, доставка по Минску по пятницам.",
+  "elements": {
+    "site-header": {
+      "type": "js.site-header",
+      "props": {
+        "brand": "КВАРТА",
+        "tagline": "обжарка кофе · Минск",
+        "phone": "+375 (29) 123-45-67",
+        "phoneLink": "tel:+375291234567",
+        "ctaText": "Оставить заявку",
+        "ctaLink": "#lead",
+        "sticky": true
+      },
+      "slots": {
+        "navigation": [
+          "header-nav"
+        ]
+      }
+    },
+    "header-nav": {
+      "type": "js.nav-links",
+      "props": {
+        "alignment": "right_aligned",
+        "textColor": "dark"
+      },
+      "slots": {
+        "items": [
+          "header-nav-assortment",
+          "header-nav-subscription",
+          "header-nav-delivery",
+          "header-nav-contacts"
+        ]
+      }
+    },
+    "header-nav-assortment": {
+      "type": "js.nav-link",
+      "props": {
+        "label": "Кофе",
+        "link": "#assortment"
+      }
+    },
+    "header-nav-subscription": {
+      "type": "js.nav-link",
+      "props": {
+        "label": "Подписка",
+        "link": "#subscription"
+      }
+    },
+    "header-nav-delivery": {
+      "type": "js.nav-link",
+      "props": {
+        "label": "Доставка",
+        "link": "#delivery"
+      }
+    },
+    "header-nav-contacts": {
+      "type": "js.nav-link",
+      "props": {
+        "label": "Контакты",
+        "link": "#lead"
+      }
+    },
+    "hero-section": {
+      "type": "js.section",
+      "props": {
+        "background": "dark",
+        "verticalPadding": "small",
+        "width": "normal",
+        "anchor": "hero"
+      },
+      "slots": {
+        "content": [
+          "hero"
+        ]
+      }
+    },
+    "hero": {
+      "type": "js.hero",
+      "props": {
+        "eyebrow": "Обжарка кофе в Минске с 2019 года",
+        "heading": "Обжариваем в четверг — привозим в пятницу",
+        "text": "<p>Партии по 5 кг, без склада и посредников. Зерно попадает к вам на 1–3 день после обжарки — поэтому в чашке слышны цветы, карамель и шоколад, а не «просто кофе».</p>",
+        "primaryText": "Оформить заявку",
+        "primaryLink": "#lead",
+        "secondaryText": "Посмотреть кофе",
+        "secondaryLink": "#assortment",
+        "image": {
+          "src": "/sites/default/files/2026-10/photo-1447933601403-0c6688de566e-31fb6098.jpg?alternateWidths=/sites/default/files/styles/canvas_parametrized_width--%7Bwidth%7D/public/2026-10/photo-1447933601403-0c6688de566e-31fb6098.jpg.avif%3Fitok%3DiRYoPZUl",
+          "alt": "Крупный план обжаренных кофейных зёрен на тёмном фоне",
+          "width": 1600,
+          "height": 900
+        },
+        "overlay": "medium",
+        "textColor": "light"
+      },
+      "slots": {
+        "facts": [
+          "hero-facts"
+        ]
+      },
+      "_provenance": {
+        "image": {
+          "target_id": 3,
+          "source_url": "https://images.unsplash.com/photo-1447933601403-0c6688de566e?auto=format&fit=crop&w=1600&h=900&q=80"
+        }
+      }
+    },
+    "hero-facts": {
+      "type": "js.fact-list",
+      "props": {
+        "columns": "3",
+        "textColor": "light"
+      },
+      "slots": {
+        "items": [
+          "hero-fact-batch",
+          "hero-fact-freshness",
+          "hero-fact-delivery"
+        ]
+      }
+    },
+    "hero-fact-batch": {
+      "type": "js.fact-item",
+      "props": {
+        "value": "5 кг",
+        "label": "размер партии"
+      }
+    },
+    "hero-fact-freshness": {
+      "type": "js.fact-item",
+      "props": {
+        "value": "1–3 дня",
+        "label": "от роастера до чашки"
+      }
+    },
+    "hero-fact-delivery": {
+      "type": "js.fact-item",
+      "props": {
+        "value": "пятница",
+        "label": "развоз по Минску"
+      }
+    },
+    "story-section": {
+      "type": "js.section",
+      "props": {
+        "background": "base",
+        "verticalPadding": "medium",
+        "width": "normal",
+        "anchor": "story"
+      },
+      "slots": {
+        "content": [
+          "story-eyebrow",
+          "story-heading",
+          "story-columns",
+          "story-facts"
+        ]
+      }
+    },
+    "story-eyebrow": {
+      "type": "js.eyebrow",
+      "props": {
+        "text": "Кто мы",
+        "textColor": "accent"
+      }
+    },
+    "story-heading": {
+      "type": "js.heading",
+      "props": {
+        "heading": "Кофе — скоропортящийся продукт",
+        "textColor": "dark",
+        "headingElement": "h2",
+        "headingSize": "large",
+        "layout": "left_aligned"
+      }
+    },
+    "story-columns": {
+      "type": "js.two_column_text",
+      "props": {
+        "layout": "text_image",
+        "columnWidths": "50_50",
+        "headingElement": "h3",
+        "headingSize": "medium",
+        "textColor": "dark",
+        "text": "<p>После обжарки зерно живёт неделями, а не месяцами: аромат уходит первым. Поэтому мы не держим склад. В четверг обжариваем то, что заказали, в пятницу развозим — и вы открываете пачку в лучшие её дни.</p><p>«Кварта» — мастерская Ани и Дмитрия. Оба пришли из бариста: варили кофе в кофейнях и видели, как много теряет зерно, пока лежит на полке. С 2019 года обжаривают сами, партиями по 5 кг.</p>",
+        "image": {
+          "src": "/sites/default/files/2026-10/photo-1587734195503-904fca47e0e9-640d9ea0_2.jpg?alternateWidths=/sites/default/files/styles/canvas_parametrized_width--%7Bwidth%7D/public/2026-10/photo-1587734195503-904fca47e0e9-640d9ea0_2.jpg.avif%3Fitok%3DXuaJFAcR",
+          "alt": "Обжаренное зерно свежей партии в белой чаше",
+          "width": 1200,
+          "height": 900
+        }
+      },
+      "_provenance": {
+        "image": {
+          "target_id": 21,
+          "source_url": "https://images.unsplash.com/photo-1587734195503-904fca47e0e9?auto=format&fit=crop&w=1200&h=900&q=80"
+        }
+      }
+    },
+    "story-facts": {
+      "type": "js.fact-list",
+      "props": {
+        "columns": "3",
+        "textColor": "dark"
+      },
+      "slots": {
+        "items": [
+          "story-fact-batch",
+          "story-fact-roast",
+          "story-fact-delivery"
+        ]
+      }
+    },
+    "story-fact-batch": {
+      "type": "js.fact-item",
+      "props": {
+        "value": "Партии по 5 кг",
+        "label": "обжариваем небольшими партиями, чтобы зерно не залежалось"
+      }
+    },
+    "story-fact-roast": {
+      "type": "js.fact-item",
+      "props": {
+        "value": "Обжарка по четвергам",
+        "label": "заказы собираем до среды, 18:00"
+      }
+    },
+    "story-fact-delivery": {
+      "type": "js.fact-item",
+      "props": {
+        "value": "Развоз по пятницам",
+        "label": "по Минску и в пункт самовывоза на ул. Короля, 9"
+      }
+    },
+    "assortment-section": {
+      "type": "js.section",
+      "props": {
+        "background": "cream",
+        "verticalPadding": "medium",
+        "width": "normal",
+        "anchor": "assortment"
+      },
+      "slots": {
+        "content": [
+          "assortment-cards"
+        ]
+      }
+    },
+    "assortment-cards": {
+      "type": "js.card_container",
+      "props": {
+        "layout": "33-33-33",
+        "preHeading": "Ассортимент",
+        "heading": "Что обжариваем на этой неделе",
+        "headingPosition": "left_aligned",
+        "headingSize": "large",
+        "headingElement": "h2",
+        "textColor": "dark"
+      },
+      "slots": {
+        "content": [
+          "product-ethiopia",
+          "product-colombia",
+          "product-brazil",
+          "product-drip",
+          "product-subscription"
+        ]
+      }
+    },
+    "product-ethiopia": {
+      "type": "js.product-card",
+      "props": {
+        "name": "Эфиопия Иргачеффе",
+        "description": "цветочный, бергамот, светлая обжарка",
+        "weight": "250 г",
+        "price": "32 BYN",
+        "badge": "светлая обжарка",
+        "image": {
+          "src": "/sites/default/files/2026-10/photo-1442512595331-e89e73853f31-3c82bb2d_0.jpg?alternateWidths=/sites/default/files/styles/canvas_parametrized_width--%7Bwidth%7D/public/2026-10/photo-1442512595331-e89e73853f31-3c82bb2d_0.jpg.avif%3Fitok%3D3iUXR3Mc",
+          "alt": "Пуровер: светлая обжарка заваривается в воронке",
+          "width": 1200,
+          "height": 900
+        },
+        "link": "#lead",
+        "linkLabel": "в заявку"
+      },
+      "_provenance": {
+        "image": {
+          "target_id": 15,
+          "source_url": "https://images.unsplash.com/photo-1442512595331-e89e73853f31?auto=format&fit=crop&w=1200&h=900&q=80"
+        }
+      }
+    },
+    "product-colombia": {
+      "type": "js.product-card",
+      "props": {
+        "name": "Колумбия Уила",
+        "description": "карамель, красное яблоко",
+        "weight": "250 г",
+        "price": "29 BYN",
+        "image": {
+          "src": "/sites/default/files/2026-10/photo-1514432324607-a09d9b4aefdd-b079f4f1_1.jpg?alternateWidths=/sites/default/files/styles/canvas_parametrized_width--%7Bwidth%7D/public/2026-10/photo-1514432324607-a09d9b4aefdd-b079f4f1_1.jpg.avif%3Fitok%3DHknfau08",
+          "alt": "Чашка чёрного кофе, вид сверху",
+          "width": 1200,
+          "height": 900
+        },
+        "link": "#lead",
+        "linkLabel": "в заявку"
+      },
+      "_provenance": {
+        "image": {
+          "target_id": 19,
+          "source_url": "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=1200&h=900&q=80"
+        }
+      }
+    },
+    "product-brazil": {
+      "type": "js.product-card",
+      "props": {
+        "name": "Бразилия Серрадо",
+        "description": "орех, шоколад, под эспрессо",
+        "weight": "250 г",
+        "price": "26 BYN",
+        "badge": "под эспрессо",
+        "image": {
+          "src": "/sites/default/files/2026-10/photo-1497935586351-b67a49e012bf-acec33ec_2.jpg?alternateWidths=/sites/default/files/styles/canvas_parametrized_width--%7Bwidth%7D/public/2026-10/photo-1497935586351-b67a49e012bf-acec33ec_2.jpg.avif%3Fitok%3Da2vpsEDF",
+          "alt": "Эспрессо: тампер, молотый кофе и латте на деревянной доске",
+          "width": 1200,
+          "height": 900
+        },
+        "link": "#lead",
+        "linkLabel": "в заявку"
+      },
+      "_provenance": {
+        "image": {
+          "target_id": 23,
+          "source_url": "https://images.unsplash.com/photo-1497935586351-b67a49e012bf?auto=format&fit=crop&w=1200&h=900&q=80"
+        }
+      }
+    },
+    "product-drip": {
+      "type": "js.product-card",
+      "props": {
+        "name": "Дрип-пакеты, ассорти",
+        "description": "10 штук, чтобы взять кофе в дорогу",
+        "weight": "10 шт",
+        "price": "18 BYN",
+        "image": {
+          "src": "/sites/default/files/2026-10/photo-1461023058943-07fcbe16d735-15a324d4_3.jpg?alternateWidths=/sites/default/files/styles/canvas_parametrized_width--%7Bwidth%7D/public/2026-10/photo-1461023058943-07fcbe16d735-15a324d4_3.jpg.avif%3Fitok%3Dun2CRahc",
+          "alt": "Айс-кофе в стакане — вариант взять кофе с собой",
+          "width": 1200,
+          "height": 900
+        },
+        "link": "#lead",
+        "linkLabel": "в заявку"
+      },
+      "_provenance": {
+        "image": {
+          "target_id": 24,
+          "source_url": "https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&w=1200&h=900&q=80"
+        }
+      }
+    },
+    "product-subscription": {
+      "type": "js.product-card",
+      "props": {
+        "name": "Подписка",
+        "description": "2 пачки по 250 г раз в месяц, доставка бесплатно",
+        "weight": "2 × 250 г",
+        "price": "54 BYN / мес",
+        "badge": "доставка бесплатно",
+        "image": {
+          "src": "/sites/default/files/2026-10/photo-1459755486867-b55449bb39ff-ec5d614f_0.jpg?alternateWidths=/sites/default/files/styles/canvas_parametrized_width--%7Bwidth%7D/public/2026-10/photo-1459755486867-b55449bb39ff-ec5d614f_0.jpg.avif%3Fitok%3DpUBhyilB",
+          "alt": "Чашка кофе и мешок обжаренного зерна",
+          "width": 1200,
+          "height": 900
+        },
+        "link": "#lead",
+        "linkLabel": "в заявку"
+      },
+      "_provenance": {
+        "image": {
+          "target_id": 11,
+          "source_url": "https://images.unsplash.com/photo-1459755486867-b55449bb39ff?auto=format&fit=crop&w=1200&h=900&q=80"
+        }
+      }
+    },
+    "subscription-section": {
+      "type": "js.section",
+      "props": {
+        "background": "dark",
+        "verticalPadding": "medium",
+        "width": "normal",
+        "anchor": "subscription"
+      },
+      "slots": {
+        "content": [
+          "subscription-eyebrow",
+          "subscription-heading",
+          "subscription-text",
+          "subscription-button",
+          "subscription-image"
+        ]
+      }
+    },
+    "subscription-eyebrow": {
+      "type": "js.eyebrow",
+      "props": {
+        "text": "Подписка",
+        "textColor": "light"
+      }
+    },
+    "subscription-heading": {
+      "type": "js.heading",
+      "props": {
+        "heading": "Свежая пачка у двери каждый месяц",
+        "textColor": "light",
+        "headingElement": "h2",
+        "headingSize": "large",
+        "layout": "left_aligned"
+      }
+    },
+    "subscription-text": {
+      "type": "js.text",
+      "props": {
+        "text": "<p>Две пачки по 250 г раз в месяц — 54 BYN. Собираем набор из того, что обжарили на этой неделе, привозим бесплатно. Пропустить месяц или отказаться можно одним сообщением.</p>",
+        "textSize": "large",
+        "textColor": "light"
+      }
+    },
+    "subscription-button": {
+      "type": "js.button",
+      "props": {
+        "text": "Оформить подписку",
+        "link": "#lead",
+        "variant": "solid"
+      }
+    },
+    "subscription-image": {
+      "type": "js.image",
+      "props": {
+        "image": {
+          "src": "/sites/default/files/2026-10/photo-1524350876685-274059332603-3e089e9b_1.jpg?alternateWidths=/sites/default/files/styles/canvas_parametrized_width--%7Bwidth%7D/public/2026-10/photo-1524350876685-274059332603-3e089e9b_1.jpg.avif%3Fitok%3D93mazyGm",
+          "alt": "Мешок обжаренного зерна на тёмном фоне",
+          "width": 1200,
+          "height": 900
+        }
+      },
+      "_provenance": {
+        "image": {
+          "target_id": 20,
+          "source_url": "https://images.unsplash.com/photo-1524350876685-274059332603?auto=format&fit=crop&w=1200&h=900&q=80"
+        }
+      }
+    },
+    "delivery-section": {
+      "type": "js.section",
+      "props": {
+        "background": "base",
+        "verticalPadding": "medium",
+        "width": "normal",
+        "anchor": "delivery"
+      },
+      "slots": {
+        "content": [
+          "delivery-cards"
+        ]
+      }
+    },
+    "delivery-cards": {
+      "type": "js.card_container",
+      "props": {
+        "layout": "33-33-33",
+        "preHeading": "Доставка и самовывоз",
+        "heading": "Как забрать кофе",
+        "headingPosition": "left_aligned",
+        "headingSize": "large",
+        "headingElement": "h2",
+        "textColor": "dark"
+      },
+      "slots": {
+        "content": [
+          "delivery-card-pickup",
+          "delivery-card-delivery",
+          "delivery-card-payment"
+        ]
+      }
+    },
+    "delivery-card-pickup": {
+      "type": "js.card",
+      "props": {
+        "variant": "default",
+        "layout": "left_aligned",
+        "heading": "Самовывоз",
+        "headingElement": "h3",
+        "text": "<ul><li>Минск, ул. Короля, 9 (вход со двора)</li><li>Пн–пт 8:00–20:00, сб–вс 10:00–18:00</li><li>Кофе ждёт вас в день обжарки, мы напишем, когда пачка готова.</li></ul>"
+      }
+    },
+    "delivery-card-delivery": {
+      "type": "js.card",
+      "props": {
+        "variant": "default",
+        "layout": "left_aligned",
+        "heading": "Доставка",
+        "headingElement": "h3",
+        "text": "<ul><li>Каждую пятницу по Минску</li><li>От 50 BYN — бесплатно, меньше — 5 BYN в пределах МКАД</li><li>Курьер напишет в мессенджер примерно за час.</li></ul>"
+      }
+    },
+    "delivery-card-payment": {
+      "type": "js.card",
+      "props": {
+        "variant": "default",
+        "layout": "left_aligned",
+        "heading": "Оплата",
+        "headingElement": "h3",
+        "text": "<ul><li>Наличными или картой при получении</li><li>Для организаций — счёт и перевод</li><li>Онлайн-оплаты нет: заказ подтверждает менеджер, он же перезвонит.</li></ul>"
+      }
+    },
+    "lead-section": {
+      "type": "js.section",
+      "props": {
+        "background": "cream",
+        "verticalPadding": "medium",
+        "width": "normal",
+        "anchor": "lead"
+      },
+      "slots": {
+        "content": [
+          "lead-form"
+        ]
+      }
+    },
+    "lead-form": {
+      "type": "js.lead-form",
+      "props": {
+        "heading": "Оставьте заявку — перезвоним",
+        "intro": "<p>Менеджер уточнит детали и подтвердит заказ. Звоним в рабочее время: пн–пт 8:00–20:00, сб–вс 10:00–18:00.</p>",
+        "submitLabel": "Отправить заявку",
+        "successMessage": "Спасибо! Заявка принята — перезвоним в рабочее время и подтвердим детали.",
+        "errorMessage": "Не получилось отправить заявку. Позвоните нам: +375 (29) 123-45-67 — или попробуйте ещё раз.",
+        "privacyNote": "Отправляя форму, вы соглашаетесь на обработку персональных данных. Кофе привезём только по Минску.",
+        "phoneFallback": "+375 (29) 123-45-67",
+        "endpoint": "/api/lead",
+        "interestLabel": "Что интересует"
+      }
+    },
+    "site-footer": {
+      "type": "js.site-footer",
+      "props": {
+        "brand": "КВАРТА",
+        "address": "Минск, ул. Короля, 9",
+        "hours": "пн–пт 8:00–20:00, сб–вс 10:00–18:00",
+        "phone": "+375 (29) 123-45-67",
+        "phoneLink": "tel:+375291234567",
+        "email": "hello@kvarta.by",
+        "copyright": "© 2026 «Кварта». Кофе обжаривают Аня и Дмитрий."
+      },
+      "slots": {
+        "navigation": [
+          "footer-nav"
+        ],
+        "social": [
+          "footer-social"
+        ]
+      }
+    },
+    "footer-nav": {
+      "type": "js.nav-links",
+      "props": {
+        "alignment": "left_aligned",
+        "textColor": "light"
+      },
+      "slots": {
+        "items": [
+          "footer-nav-assortment",
+          "footer-nav-subscription",
+          "footer-nav-delivery",
+          "footer-nav-contacts"
+        ]
+      }
+    },
+    "footer-nav-assortment": {
+      "type": "js.nav-link",
+      "props": {
+        "label": "Кофе",
+        "link": "#assortment"
+      }
+    },
+    "footer-nav-subscription": {
+      "type": "js.nav-link",
+      "props": {
+        "label": "Подписка",
+        "link": "#subscription"
+      }
+    },
+    "footer-nav-delivery": {
+      "type": "js.nav-link",
+      "props": {
+        "label": "Доставка",
+        "link": "#delivery"
+      }
+    },
+    "footer-nav-contacts": {
+      "type": "js.nav-link",
+      "props": {
+        "label": "Контакты",
+        "link": "#lead"
+      }
+    },
+    "footer-social": {
+      "type": "js.nav-links",
+      "props": {
+        "alignment": "left_aligned",
+        "textColor": "light"
+      },
+      "slots": {
+        "items": [
+          "footer-social-instagram",
+          "footer-social-telegram"
+        ]
+      }
+    },
+    "footer-social-instagram": {
+      "type": "js.nav-link",
+      "props": {
+        "label": "Instagram",
+        "link": "https://instagram.com/"
+      }
+    },
+    "footer-social-telegram": {
+      "type": "js.nav-link",
+      "props": {
+        "label": "Telegram",
+        "link": "https://t.me/"
+      }
+    }
+  },
+  "uuid": "2dd6e1a0-d159-4832-bd7f-8e86b8691e3e"
+}

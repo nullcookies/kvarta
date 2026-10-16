@@ -1,0 +1,88 @@
+{
+  "status": true,
+  "elements": {
+    "site-footer": {
+      "type": "js.site-footer",
+      "props": {
+        "brand": "КВАРТА",
+        "address": "Минск, ул. Короля, 9",
+        "hours": "пн–пт 8:00–20:00, сб–вс 10:00–18:00",
+        "phone": "+375 (29) 123-45-67",
+        "phoneLink": "tel:+375291234567",
+        "email": "hello@kvarta.by",
+        "copyright": "© 2026 «Кварта». Кофе обжаривают Аня и Дмитрий."
+      },
+      "slots": {
+        "navigation": ["footer-nav"],
+        "social": ["footer-social"]
+      }
+    },
+    "footer-nav": {
+      "type": "js.nav-links",
+      "props": {
+        "alignment": "left_aligned",
+        "textColor": "light"
+      },
+      "slots": {
+        "items": [
+          "footer-nav-assortment",
+          "footer-nav-subscription",
+          "footer-nav-delivery",
+          "footer-nav-contacts"
+        ]
+      }
+    },
+    "footer-nav-assortment": {
+      "type": "js.nav-link",
+      "props": {
+        "label": "Кофе",
+        "link": "#assortment"
+      }
+    },
+    "footer-nav-subscription": {
+      "type": "js.nav-link",
+      "props": {
+        "label": "Подписка",
+        "link": "#subscription"
+      }
+    },
+    "footer-nav-delivery": {
+      "type": "js.nav-link",
+      "props": {
+        "label": "Доставка",
+        "link": "#delivery"
+      }
+    },
+    "footer-nav-contacts": {
+      "type": "js.nav-link",
+      "props": {
+        "label": "Контакты",
+        "link": "#lead"
+      }
+    },
+    "footer-social": {
+      "type": "js.nav-links",
+      "props": {
+        "alignment": "left_aligned",
+        "textColor": "light"
+      },
+      "slots": {
+        "items": ["footer-social-instagram", "footer-social-telegram"]
+      }
+    },
+    "footer-social-instagram": {
+      "type": "js.nav-link",
+      "props": {
+        "label": "Instagram",
+        "link": "https://instagram.com/"
+      }
+    },
+    "footer-social-telegram": {
+      "type": "js.nav-link",
+      "props": {
+        "label": "Telegram",
+        "link": "https://t.me/"
+      }
+    }
+  }
+}

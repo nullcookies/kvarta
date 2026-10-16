@@ -1,0 +1,33 @@
+name: Nav links
+machineName: nav-links
+status: true
+required: []
+props:
+  properties:
+    alignment:
+      title: Alignment
+      type: string
+      enum:
+        - left_aligned
+        - center_aligned
+        - right_aligned
+      meta:enum:
+        left_aligned: Left aligned
+        center_aligned: Center aligned
+        right_aligned: Right aligned
+      examples:
+        - left_aligned
+    textColor:
+      title: Text Color
+      type: string
+      enum:
+        - dark
+        - light
+      meta:enum:
+        dark: Dark
+        light: Light
+      examples:
+        - dark
+slots:
+  items:
+    title: Links

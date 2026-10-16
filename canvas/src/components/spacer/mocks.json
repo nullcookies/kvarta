@@ -1,0 +1,129 @@
+{
+  "mocks": [
+    {
+      "name": "Small between cards",
+      "root": "spacer-demo-section",
+      "elements": {
+        "spacer-demo-section": {
+          "type": "section",
+          "props": {
+            "background": "cream",
+            "paddingY": "medium",
+            "width": "normal"
+          },
+          "slots": {
+            "content": ["card-one", "demo-spacer", "card-two"]
+          }
+        },
+        "card-one": {
+          "type": "card",
+          "props": {
+            "layout": "left_aligned",
+            "linkVariant": "link",
+            "heading": "Партии по 5 кг",
+            "text": "<p>Обжариваем небольшими партиями.</p>"
+          }
+        },
+        "demo-spacer": {
+          "type": "spacer",
+          "props": {
+            "height": "small"
+          }
+        },
+        "card-two": {
+          "type": "card",
+          "props": {
+            "layout": "left_aligned",
+            "linkVariant": "link",
+            "heading": "Обжарка по четвергам",
+            "text": "<p>Заказы собираем до среды, 18:00.</p>"
+          }
+        }
+      }
+    },
+    {
+      "name": "Large between cards",
+      "root": "spacer-demo-section",
+      "elements": {
+        "spacer-demo-section": {
+          "type": "section",
+          "props": {
+            "background": "cream",
+            "paddingY": "medium",
+            "width": "normal"
+          },
+          "slots": {
+            "content": ["card-one", "demo-spacer", "card-two"]
+          }
+        },
+        "card-one": {
+          "type": "card",
+          "props": {
+            "layout": "left_aligned",
+            "linkVariant": "link",
+            "heading": "Развоз по пятницам",
+            "text": "<p>По Минску и в пункт самовывоза.</p>"
+          }
+        },
+        "demo-spacer": {
+          "type": "spacer",
+          "props": {
+            "height": "large"
+          }
+        },
+        "card-two": {
+          "type": "card",
+          "props": {
+            "layout": "left_aligned",
+            "linkVariant": "link",
+            "heading": "Подписка",
+            "text": "<p>Две пачки по 250 г раз в месяц — 54 BYN.</p>"
+          }
+        }
+      }
+    },
+    {
+      "name": "Extra large between cards",
+      "root": "spacer-demo-section",
+      "elements": {
+        "spacer-demo-section": {
+          "type": "section",
+          "props": {
+            "background": "dark",
+            "paddingY": "large",
+            "width": "normal"
+          },
+          "slots": {
+            "content": ["card-one", "demo-spacer", "card-two"]
+          }
+        },
+        "card-one": {
+          "type": "card",
+          "props": {
+            "layout": "left_aligned",
+            "linkVariant": "link",
+            "textColor": "Light",
+            "heading": "Мастерская Ани и Дмитрия",
+            "text": "<p>С 2019 года обжаривают сами.</p>"
+          }
+        },
+        "demo-spacer": {
+          "type": "spacer",
+          "props": {
+            "height": "extra_large"
+          }
+        },
+        "card-two": {
+          "type": "card",
+          "props": {
+            "layout": "left_aligned",
+            "linkVariant": "link",
+            "textColor": "Light",
+            "heading": "Свежая пачка у двери",
+            "text": "<p>Привозим бесплатно, пропустить месяц можно одним сообщением.</p>"
+          }
+        }
+      }
+    }
+  ]
+}

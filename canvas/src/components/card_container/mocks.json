@@ -1,0 +1,218 @@
+{
+  "mocks": [
+    {
+      "name": "Three columns with heading",
+      "props": {
+        "preHeading": "Ассортимент",
+        "heading": "Что обжариваем на этой неделе",
+        "headingSize": "large",
+        "textColor": "dark",
+        "headingPosition": "center_aligned",
+        "headingElement": "h2",
+        "layout": "33-33-33"
+      },
+      "slots": {
+        "content": ["card-one", "card-two", "card-three"]
+      },
+      "elements": {
+        "card-one": {
+          "type": "card",
+          "props": {
+            "variant": "default",
+            "layout": "left_aligned",
+            "heading": "Самовывоз",
+            "headingElement": "h3",
+            "text": "Минск, ул. Короля, 9 (вход со двора).",
+            "link": "/delivery",
+            "linkVariant": "link",
+            "backgroundColor": "paper",
+            "backgroundColorOnHover": "cream"
+          }
+        },
+        "card-two": {
+          "type": "card",
+          "props": {
+            "variant": "default",
+            "layout": "left_aligned",
+            "heading": "Доставка",
+            "headingElement": "h3",
+            "text": "Каждую пятницу по Минску. От 50 BYN — бесплатно.",
+            "link": "/delivery",
+            "linkVariant": "link",
+            "backgroundColor": "paper",
+            "backgroundColorOnHover": "cream"
+          }
+        },
+        "card-three": {
+          "type": "card",
+          "props": {
+            "variant": "default",
+            "layout": "left_aligned",
+            "heading": "Оплата",
+            "headingElement": "h3",
+            "text": "Наличными или картой при получении.",
+            "link": "/delivery",
+            "linkVariant": "link",
+            "backgroundColor": "paper",
+            "backgroundColorOnHover": "cream"
+          }
+        }
+      }
+    },
+    {
+      "name": "Two columns",
+      "props": {
+        "heading": "Как забрать кофе",
+        "headingSize": "large",
+        "textColor": "dark",
+        "headingPosition": "left_aligned",
+        "headingElement": "h2",
+        "layout": "50-50"
+      },
+      "slots": {
+        "content": ["card-one", "card-two"]
+      },
+      "elements": {
+        "card-one": {
+          "type": "card",
+          "props": {
+            "variant": "default",
+            "layout": "left_aligned",
+            "heading": "Партии по 5 кг",
+            "headingElement": "h3",
+            "text": "Обжариваем небольшими партиями, чтобы зерно не залежалось.",
+            "backgroundColor": "cream",
+            "backgroundColorOnHover": "caramel"
+          }
+        },
+        "card-two": {
+          "type": "card",
+          "props": {
+            "variant": "default",
+            "layout": "left_aligned",
+            "heading": "Обжарка по четвергам",
+            "headingElement": "h3",
+            "text": "Заказы собираем до среды, 18:00.",
+            "backgroundColor": "cream",
+            "backgroundColorOnHover": "caramel"
+          }
+        }
+      }
+    },
+    {
+      "name": "Four columns",
+      "props": {
+        "heading": "Почему свежесть",
+        "headingPosition": "center_aligned",
+        "headingElement": "h2",
+        "textColor": "dark",
+        "layout": "25-25-25-25"
+      },
+      "slots": {
+        "content": ["card-one", "card-two", "card-three", "card-four"]
+      },
+      "elements": {
+        "card-one": {
+          "type": "card",
+          "props": {
+            "variant": "default",
+            "layout": "left_aligned",
+            "heading": "5 кг",
+            "headingElement": "h3",
+            "text": "размер партии"
+          }
+        },
+        "card-two": {
+          "type": "card",
+          "props": {
+            "variant": "default",
+            "layout": "left_aligned",
+            "heading": "1–3 дня",
+            "headingElement": "h3",
+            "text": "от роастера до чашки"
+          }
+        },
+        "card-three": {
+          "type": "card",
+          "props": {
+            "variant": "default",
+            "layout": "left_aligned",
+            "heading": "пятница",
+            "headingElement": "h3",
+            "text": "развоз по Минску"
+          }
+        },
+        "card-four": {
+          "type": "card",
+          "props": {
+            "variant": "default",
+            "layout": "left_aligned",
+            "heading": "54 BYN",
+            "headingElement": "h3",
+            "text": "подписка в месяц"
+          }
+        }
+      }
+    },
+    {
+      "name": "Link card grid",
+      "props": {
+        "heading": "Доставка и самовывоз",
+        "headingPosition": "center_aligned",
+        "headingElement": "h2",
+        "textColor": "dark",
+        "layout": "25-25-25-25"
+      },
+      "slots": {
+        "content": [
+          "link-card-pickup",
+          "link-card-delivery",
+          "link-card-payment",
+          "link-card-subscription"
+        ]
+      },
+      "elements": {
+        "link-card-pickup": {
+          "type": "card",
+          "props": {
+            "variant": "link_card",
+            "layout": "left_aligned",
+            "heading": "Самовывоз",
+            "text": "ул. Короля, 9",
+            "link": "/delivery"
+          }
+        },
+        "link-card-delivery": {
+          "type": "card",
+          "props": {
+            "variant": "link_card",
+            "layout": "left_aligned",
+            "heading": "Доставка",
+            "text": "по пятницам",
+            "link": "/delivery"
+          }
+        },
+        "link-card-payment": {
+          "type": "card",
+          "props": {
+            "variant": "link_card",
+            "layout": "left_aligned",
+            "heading": "Оплата",
+            "text": "карта или наличные",
+            "link": "/delivery"
+          }
+        },
+        "link-card-subscription": {
+          "type": "card",
+          "props": {
+            "variant": "link_card",
+            "layout": "left_aligned",
+            "heading": "Подписка",
+            "text": "54 BYN / мес",
+            "link": "/subscription"
+          }
+        }
+      }
+    }
+  ]
+}

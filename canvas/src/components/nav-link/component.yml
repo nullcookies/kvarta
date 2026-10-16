@@ -1,0 +1,20 @@
+name: Nav link
+machineName: nav-link
+status: true
+required:
+  - label
+  - link
+props:
+  properties:
+    label:
+      title: Label
+      type: string
+      examples:
+        - Кофе
+    link:
+      title: Link
+      type: string
+      format: uri-reference
+      examples:
+        - /#assortment
+slots: {}

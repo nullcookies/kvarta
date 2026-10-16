@@ -1,0 +1,116 @@
+{
+  "mocks": [
+    {
+      "name": "With link",
+      "props": {
+        "variant": "default",
+        "image": {
+          "src": "https://placehold.co/800x600@2x.png",
+          "alt": "Example image placeholder",
+          "width": 800,
+          "height": 600
+        },
+        "layout": "left_aligned",
+        "heading": "Самовывоз",
+        "headingElement": "h3",
+        "text": "Кофе ждёт вас в день обжарки, мы напишем, когда пачка готова.",
+        "link": "/delivery",
+        "linkLabel": "Как забрать",
+        "linkVariant": "link"
+      }
+    },
+    {
+      "name": "Center aligned",
+      "props": {
+        "variant": "default",
+        "layout": "center_aligned",
+        "heading": "Развоз по пятницам",
+        "headingElement": "h3",
+        "text": "Каждую пятницу по Минску. От 50 BYN — бесплатно.",
+        "link": "/delivery",
+        "linkVariant": "link"
+      }
+    },
+    {
+      "name": "Cream background",
+      "props": {
+        "variant": "default",
+        "layout": "left_aligned",
+        "heading": "Партии по 5 кг",
+        "headingElement": "h3",
+        "text": "Обжариваем небольшими партиями, чтобы зерно не залежалось.",
+        "link": "/story",
+        "linkVariant": "link",
+        "backgroundColor": "cream",
+        "backgroundColorOnHover": "caramel"
+      }
+    },
+    {
+      "name": "Dark background",
+      "props": {
+        "variant": "default",
+        "layout": "left_aligned",
+        "heading": "Подписка",
+        "headingElement": "h3",
+        "text": "Две пачки по 250 г раз в месяц — 54 BYN.",
+        "link": "/subscription",
+        "linkLabel": "Оформить",
+        "linkVariant": "outline_light",
+        "textColor": "Light",
+        "backgroundColor": "ink",
+        "backgroundColorOnHover": "brand"
+      }
+    },
+    {
+      "name": "With solid button",
+      "props": {
+        "variant": "default",
+        "layout": "left_aligned",
+        "heading": "Оплата",
+        "headingElement": "h3",
+        "text": "Наличными или картой при получении. Для организаций — счёт и перевод.",
+        "link": "/lead",
+        "linkLabel": "Оставить заявку",
+        "linkVariant": "solid"
+      }
+    },
+    {
+      "name": "With byline",
+      "props": {
+        "variant": "default",
+        "layout": "left_aligned",
+        "heading": "Обжарка по четвергам",
+        "headingElement": "h3",
+        "text": "Заказы собираем до среды, 18:00.",
+        "link": "/story",
+        "linkVariant": "link",
+        "byline": "Аня и Дмитрий · с 2019 года"
+      }
+    },
+    {
+      "name": "Link card",
+      "props": {
+        "variant": "link_card",
+        "layout": "left_aligned",
+        "heading": "Доставка",
+        "text": "Развоз по пятницам",
+        "link": "/delivery"
+      }
+    },
+    {
+      "name": "Link card with image",
+      "props": {
+        "variant": "link_card",
+        "layout": "left_aligned",
+        "heading": "Минск, ул. Короля, 9",
+        "link": "/contacts",
+        "image": {
+          "src": "https://placehold.co/320x320@2x.png",
+          "alt": "Пункт самовывоза",
+          "width": 320,
+          "height": 320
+        }
+      }
+    }
+  ]
+}

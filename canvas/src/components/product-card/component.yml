@@ -1,0 +1,55 @@
+name: Product Card
+machineName: product-card
+status: true
+required:
+  - name
+  - price
+props:
+  properties:
+    name:
+      title: Name
+      type: string
+      examples:
+        - Эфиопия Иргачеффе
+    description:
+      title: Description
+      type: string
+      examples:
+        - цветочный, бергамот, светлая обжарка
+    weight:
+      title: Weight
+      type: string
+      examples:
+        - 250 г
+    price:
+      title: Price
+      type: string
+      examples:
+        - 32 BYN
+    badge:
+      title: Badge
+      type: string
+      examples:
+        - светлая обжарка
+    image:
+      title: Image
+      type: object
+      $ref: json-schema-definitions://canvas.module/image
+      examples:
+        - src: >-
+            https://images.unsplash.com/photo-1447933601403-0c6688de566e?auto=format&fit=crop&w=1200&q=80
+          alt: Пачка кофе «Эфиопия Иргачеффе» и зёрна
+          width: 1200
+          height: 900
+    link:
+      title: Link
+      type: string
+      format: uri-reference
+      examples:
+        - /#lead
+    linkLabel:
+      title: Link Label
+      type: string
+      examples:
+        - в заявку
+slots: {}
