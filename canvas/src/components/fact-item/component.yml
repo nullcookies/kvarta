@@ -4,6 +4,7 @@ status: true
 required:
   - value
   - label
+  - textColor
 props:
   properties:
     value:
@@ -16,4 +17,15 @@ props:
       type: string
       examples:
         - размер партии
+    textColor:
+      title: Text Color
+      type: string
+      examples:
+        - dark
+      enum:
+        - dark
+        - light
+      meta:enum:
+        dark: Dark (на светлом фоне)
+        light: Light (на тёмном фоне)
 slots: {}
