@@ -1,0 +1,22 @@
+kvarta_lead.submit:
+  path: '/api/lead'
+  defaults:
+    _controller: '\Drupal\kvarta_lead\Controller\LeadController::submit'
+    _title: 'Заявка'
+  methods: [POST]
+  requirements:
+    # Публичная форма: доступ анонимный, защита — flood control, honeypot,
+    # проверка Origin и уникальный индекс в БД (см. README).
+    _access: 'TRUE'
+  options:
+    no_cache: TRUE
+
+kvarta_lead.list:
+  path: '/admin/content/kvarta-leads'
+  defaults:
+    _controller: '\Drupal\kvarta_lead\Controller\LeadListController::list'
+    _title: 'Заявки «Кварта»'
+  requirements:
+    _permission: 'view kvarta leads'
+  options:
+    _admin_route: TRUE

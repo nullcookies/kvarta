@@ -1,0 +1,7 @@
+name: 'Кварта: заявки'
+type: module
+description: 'Приём заявок с лендинга обжарки «Кварта»: эндпоинт POST /api/lead, валидация белорусского телефона, дедупликация 10 минут, атрибуция рекламы, дублирование в Telegram.'
+package: Кварта
+core_version_requirement: ^11
+dependencies:
+  - drupal:system

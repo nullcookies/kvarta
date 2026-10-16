@@ -1,0 +1,4 @@
+view kvarta leads:
+  title: 'Просматривать заявки «Кварта»'
+  description: 'Доступ к списку заявок, присланных с лендинга.'
+  restrict access: true

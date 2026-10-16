@@ -1,0 +1,6 @@
+kvarta_lead.list:
+  title: 'Заявки «Кварта»'
+  description: 'Заявки с лендинга обжарки.'
+  parent: system.admin_content
+  route_name: kvarta_lead.list
+  weight: 20

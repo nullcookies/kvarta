@@ -1,0 +1,23 @@
+services:
+  kvarta_lead.phone:
+    class: Drupal\kvarta_lead\Phone\ByPhoneNumber
+
+  kvarta_lead.repository:
+    class: Drupal\kvarta_lead\LeadRepository
+    arguments:
+      - '@database'
+
+  kvarta_lead.telegram:
+    class: Drupal\kvarta_lead\Notifier\TelegramNotifier
+    arguments:
+      - '@http_client'
+      - '@logger.factory'
+
+  kvarta_lead.manager:
+    class: Drupal\kvarta_lead\LeadManager
+    arguments:
+      - '@kvarta_lead.repository'
+      - '@kvarta_lead.phone'
+      - '@kvarta_lead.telegram'
+      - '@lock'
+      - '@logger.factory'

@@ -1,0 +1,194 @@
+<?php
+
+/**
+ * @file
+ * Схема хранения заявок и права доступа.
+ */
+
+declare(strict_types=1);
+
+use Drupal\user\Entity\Role;
+
+/**
+ * Implements hook_schema().
+ */
+function kvarta_lead_schema(): array {
+  $schema['kvarta_lead'] = [
+    'description' => 'Заявки с лендинга обжарки «Кварта».',
+    'fields' => [
+      'id' => [
+        'type' => 'serial',
+        'not null' => TRUE,
+        'description' => 'Первичный ключ.',
+      ],
+      'created' => [
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+        'description' => 'Время создания заявки (Unix timestamp).',
+      ],
+      'slot' => [
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+        'description' => 'Номер 10-минутного окна: created / 600.',
+      ],
+      'name' => [
+        'type' => 'varchar',
+        'length' => 128,
+        'not null' => TRUE,
+        'default' => '',
+        'description' => 'Имя клиента.',
+      ],
+      'phone' => [
+        'type' => 'varchar',
+        'length' => 32,
+        'not null' => TRUE,
+        'default' => '',
+        'description' => 'Телефон в формате E.164 (+375XXXXXXXXX).',
+      ],
+      'phone_display' => [
+        'type' => 'varchar',
+        'length' => 32,
+        'not null' => TRUE,
+        'default' => '',
+        'description' => 'Телефон в человеческом виде.',
+      ],
+      'phone_hash' => [
+        'type' => 'varchar',
+        'length' => 64,
+        'not null' => TRUE,
+        'default' => '',
+        'description' => 'SHA-256 нормализованного номера — ключ дедупликации.',
+      ],
+      'interest' => [
+        'type' => 'varchar',
+        'length' => 32,
+        'not null' => TRUE,
+        'default' => '',
+        'description' => 'Что интересует: subscription | order | question.',
+      ],
+      'comment' => [
+        'type' => 'text',
+        'size' => 'medium',
+        'not null' => FALSE,
+        'description' => 'Комментарий клиента.',
+      ],
+      'utm_source' => [
+        'type' => 'varchar',
+        'length' => 128,
+        'not null' => TRUE,
+        'default' => '',
+        'description' => 'Источник рекламы (utm_source).',
+      ],
+      'utm_medium' => [
+        'type' => 'varchar',
+        'length' => 128,
+        'not null' => TRUE,
+        'default' => '',
+        'description' => 'Тип трафика (utm_medium).',
+      ],
+      'utm_campaign' => [
+        'type' => 'varchar',
+        'length' => 128,
+        'not null' => TRUE,
+        'default' => '',
+        'description' => 'Кампания (utm_campaign).',
+      ],
+      'utm_content' => [
+        'type' => 'varchar',
+        'length' => 128,
+        'not null' => TRUE,
+        'default' => '',
+        'description' => 'Объявление (utm_content).',
+      ],
+      'utm_term' => [
+        'type' => 'varchar',
+        'length' => 128,
+        'not null' => TRUE,
+        'default' => '',
+        'description' => 'Ключевое слово (utm_term).',
+      ],
+      'click_id_type' => [
+        'type' => 'varchar',
+        'length' => 16,
+        'not null' => TRUE,
+        'default' => '',
+        'description' => 'Тип click id: gclid | yclid | fbclid.',
+      ],
+      'click_id' => [
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'default' => '',
+        'description' => 'Значение click id.',
+      ],
+      'referrer' => [
+        'type' => 'varchar',
+        'length' => 512,
+        'not null' => TRUE,
+        'default' => '',
+        'description' => 'Откуда пришёл клиент.',
+      ],
+      'landing_page' => [
+        'type' => 'varchar',
+        'length' => 512,
+        'not null' => TRUE,
+        'default' => '',
+        'description' => 'Страница входа (first touch).',
+      ],
+      'page_url' => [
+        'type' => 'varchar',
+        'length' => 512,
+        'not null' => TRUE,
+        'default' => '',
+        'description' => 'Страница отправки формы.',
+      ],
+      'user_agent' => [
+        'type' => 'varchar',
+        'length' => 512,
+        'not null' => TRUE,
+        'default' => '',
+        'description' => 'User-Agent запроса.',
+      ],
+      'ip_hash' => [
+        'type' => 'varchar',
+        'length' => 64,
+        'not null' => TRUE,
+        'default' => '',
+        'description' => 'Хеш IP (с солью сайта) — без хранения самого адреса.',
+      ],
+      'telegram_status' => [
+        'type' => 'varchar',
+        'length' => 16,
+        'not null' => TRUE,
+        'default' => '',
+        'description' => 'Результат отправки в Telegram: sent | failed | skipped.',
+      ],
+    ],
+    'primary key' => ['id'],
+    'unique keys' => [
+      // Жёсткая гарантия: одна заявка на номер в пределах 10-минутного окна.
+      'phone_slot' => ['phone_hash', 'slot'],
+    ],
+    'indexes' => [
+      'created' => ['created'],
+      'phone_hash' => ['phone_hash'],
+      'utm_source' => ['utm_source'],
+    ],
+  ];
+
+  return $schema;
+}
+
+/**
+ * Implements hook_install().
+ */
+function kvarta_lead_install(): void {
+  foreach (['administrator', 'content_editor'] as $rid) {
+    $role = Role::load($rid);
+    if ($role !== NULL && $rid === 'administrator') {
+      $role->grantPermission('view kvarta leads')->save();
+    }
+  }
+}
