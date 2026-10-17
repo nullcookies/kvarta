@@ -45,9 +45,11 @@ props:
       enum:
         - normal
         - wide
+        - full
       meta:enum:
         normal: Normal (1200px)
         wide: Wide (full width)
+        full: Full (edge-to-edge, no gutters)
     anchor:
       title: Anchor
       type: string

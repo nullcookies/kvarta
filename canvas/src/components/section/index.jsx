@@ -22,11 +22,12 @@ const sectionVariants = cva('w-full', {
   },
 });
 
-const innerVariants = cva('mx-auto w-full px-4 md:px-6', {
+const innerVariants = cva('mx-auto w-full', {
   variants: {
     width: {
-      normal: 'max-w-(--container-content)',
-      wide: 'max-w-none',
+      normal: 'max-w-(--container-content) px-4 md:px-6',
+      wide: 'max-w-none px-4 md:px-6',
+      full: 'max-w-none px-0',
     },
   },
   defaultVariants: {
@@ -45,7 +46,10 @@ const Section = ({
   return (
     <section
       id={anchor || undefined}
-      className={cn(sectionVariants({ background, verticalPadding }), className)}
+      className={cn(
+        sectionVariants({ background, verticalPadding }),
+        className,
+      )}
     >
       {content ? (
         <div className={innerVariants({ width })}>{content}</div>
