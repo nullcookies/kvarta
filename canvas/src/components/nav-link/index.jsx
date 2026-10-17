@@ -15,14 +15,14 @@ const resolveLink = (link) => {
 
 const NavLink = ({ className, label, link }) => {
   return (
-    <li className={cn('min-h-0', className)}>
+    <div className={cn('min-h-0', className)}>
       <a
         className="inline-flex items-center py-1 text-inherit no-underline underline-offset-4 transition-colors hover:underline focus-visible:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-current"
         href={resolveLink(link)}
       >
         {label}
       </a>
-    </li>
+    </div>
   );
 };
 

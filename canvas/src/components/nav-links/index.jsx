@@ -8,7 +8,7 @@ import { cn } from 'drupal-canvas';
  * `min-h-8` держит слот `items` кликабельным, пока он пуст.
  */
 const listVariants = cva(
-  'flex min-h-8 list-none flex-wrap items-center gap-x-6 gap-y-2',
+  'flex min-h-8 flex-wrap items-center gap-x-6 gap-y-2',
   {
     variants: {
       alignment: {
@@ -30,9 +30,9 @@ const listVariants = cva(
 
 const NavLinks = ({ alignment, className, items, textColor }) => {
   return (
-    <ul className={cn(listVariants({ alignment, textColor }), className)}>
+    <div className={cn(listVariants({ alignment, textColor }), className)}>
       {items}
-    </ul>
+    </div>
   );
 };
 
