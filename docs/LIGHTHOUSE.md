@@ -22,12 +22,12 @@ npx -y lighthouse https://kvarta.ddev.site/ \
 
 | Категория | Оценка |
 | --- | --- |
-| Performance | **49** |
+| Performance | **50** |
 | Accessibility | **100** |
 | Best practices | **100** |
 | SEO | **100** |
 
-Метрики: FCP 1,7 с · LCP 8,7 с · TBT 0 мс · CLS 0,66 · Speed Index 3,3 с.
+Метрики: FCP 1,8 с · LCP 8,7 с · TBT 0 мс · CLS 0,66 · Speed Index 3,4 с.
 
 > Метрики Performance на локальном DDEV колеблются от прогона к прогону
 > (bind-mount на Windows + контейнер); ориентир — структурная причина
@@ -60,7 +60,7 @@ npx -y lighthouse https://kvarta.ddev.site/ \
 получает `<canvas-island>` с JSON-пропсами, грузит JS и только потом рисует
 лендинг. Отсюда и высокий LCP, и большой CLS 0,66 — контент появляется уже
 после первой отрисовки. FCP после preload шрифтов и hero-картинки держится
-около 1,7 с.
+около 1,8 с.
 
 Что даст эффект дальше (по убыванию отдачи):
 
