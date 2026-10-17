@@ -21,6 +21,9 @@ ehthumbs.db
 Desktop.ini
 $RECYCLE.BIN/
 
+# IDE (JetBrains/PhpStorm).
+/.idea
+
 # Site-specific settings and files.
 /web/sites/*/settings*.php
 /web/sites/*/services*.yml
