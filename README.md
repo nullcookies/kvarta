@@ -43,6 +43,7 @@ canvas/                        Code Components: React, Tailwind, CLI Canvas
   pages/kvarta-landing.json    спецификация лендинга (49 элементов)
   regions/                     шапка и подвал (в CLI 0.26 регионы устарели — см. ниже)
 web/modules/custom/kvarta_lead/ бэкенд заявок
+web/modules/custom/kvarta_seo/  SEO: JSON-LD, sitemap.xml, preload, lang=ru
 web/themes/custom/the_coffee_shop/ тема, сгенерированная WordPal
 recipes/                       рецепты Drupal CMS + wordpal
 docs/                          план, контент, декомпозиция Canvas, лог работы с ИИ, Lighthouse
@@ -83,6 +84,25 @@ docs/                          план, контент, декомпозици�
 свою блокировку). Заявки видны менеджеру в админке: `/admin/content/kvarta-leads`,
 там же сводка по источникам; выгрузка — обычными средствами Drupal.
 
+## SEO, доступность и Core Web Vitals
+
+Модуль `kvarta_seo` закрывает техническую часть поисковой оптимизации, а
+доступность и `robots.txt`/`sitemap` настроены на уровне темы и конфигурации:
+
+- **`lang="ru"`** на `<html>` (`hook_preprocess_html`): контент Canvas хранится с
+  langcode=en, но сайт целиком русский;
+- **JSON-LD** (`LocalBusiness` + хлебные крошки) для локальной выдачи;
+- **`robots`-мета**, `og:locale` (`ru_RU`), `canonical`, OG/Twitter-превью;
+- **`sitemap.xml`** (маршрут в модуле) и строка `Sitemap:` в `robots.txt`
+  (модуль `robotstxt`, конфиг вместо физического файла);
+- **preload** hero-картинки (`fetchpriority="high"`) и двух шрифтов,
+  `font-display: fallback` во всех `@font-face`;
+- **`<main id="main-content">`** в теме — для `landmark-one-main`.
+
+Итог Lighthouse mobile: **Accessibility 100 · Best practices 100 · SEO 100**;
+Performance низкий (49) из-за клиентского рендера Canvas — разбор в
+[docs/LIGHTHOUSE.md](docs/LIGHTHOUSE.md). План работ — [docs/SEO-PLAN.md](docs/SEO-PLAN.md).
+
 ## Чеклист сдачи (раздел 05 ТЗ)
 
 | # | Пункт | Где |
@@ -122,10 +142,10 @@ The Coffee Shop вместо Figma), хранение заявок, структ
 - **Публичного хостинга нет**: по требованию заказчика проект поднимается на
   DDEV, ссылка локальная. Для боевого варианта: любой хостинг с PHP 8.4 и
   MariaDB, `composer install --no-dev`, экспорт конфигурации и `drush config:import`.
-- **Performance на мобильном низкий (35) из-за Canvas**: компоненты отдаются
+- **Performance на мобильном низкий (49) из-за Canvas**: компоненты отдаются
   островами `client="only"`, без серверного рендера, поэтому первый экран
   появляется только после загрузки JS. Подробный разбор и план — в
-  [docs/LIGHTHOUSE.md](docs/LIGHTHOUSE.md). Accessibility 90, Best practices 100,
+  [docs/LIGHTHOUSE.md](docs/LIGHTHOUSE.md). Accessibility 100, Best practices 100,
   SEO 100.
 - **WordPal сконвертировал тему, но не все выводы конвертации**: маппинг по
   умолчанию рассчитан на тип материала `blog`, которого в Drupal CMS starter нет,
@@ -172,5 +192,6 @@ ddev drush php:script scripts/dev/canvas-info.php        # тема, стран�
 ddev drush php:script scripts/dev/lead-stats.php         # последние заявки и атрибуция
 ddev drush php:script scripts/dev/publish-canvas-pages.php
 ddev exec "cd /var/www/html && node scripts/test-lead-api.mjs"   # 16 сценариев формы
+ddev exec "cd /var/www/html && node scripts/dev/seo-audit.mjs"  # SEO-аудит отрендеренной страницы
 cd canvas && node scripts/verify-landing.mjs             # браузер: рендер, вёрстка, форма
 ```
