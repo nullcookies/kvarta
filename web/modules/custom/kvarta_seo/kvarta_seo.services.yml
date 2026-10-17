@@ -1,0 +1,8 @@
+services:
+  kvarta_seo.page_assets:
+    class: Drupal\kvarta_seo\PageAssets
+    arguments:
+      - '@entity_type.manager'
+      - '@file_url_generator'
+      - '@path.matcher'
+      - '@extension.list.theme'

@@ -1,0 +1,9 @@
+kvarta_seo.sitemap:
+  path: '/sitemap.xml'
+  defaults:
+    _controller: '\Drupal\kvarta_seo\Controller\SitemapController::build'
+    _title: 'Карта сайта'
+  requirements:
+    _access: 'TRUE'
+  options:
+    no_cache: FALSE

@@ -60,6 +60,7 @@
         "drupal/project_browser": "^2.1.5",
         "drupal/recipe_locale": "^1",
         "drupal/redirect": "^1.10",
+        "drupal/robotstxt": "^1.6",
         "drupal/sam": "^1.2",
         "drupal/scheduler": "^2.2",
         "drupal/scheduler_content_moderation_integration": "^3.0.4",

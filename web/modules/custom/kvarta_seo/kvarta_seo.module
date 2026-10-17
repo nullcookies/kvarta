@@ -1,0 +1,103 @@
+<?php
+
+/**
+ * @file
+ * Хуки модуля «Кварта: SEO».
+ */
+
+declare(strict_types=1);
+
+use Drupal\Core\Cache\CacheableMetadata;
+use Drupal\kvarta_seo\StructuredData;
+
+/**
+ * Implements hook_preprocess_html().
+ *
+ * Проставляет языку документа ru: контент сайта русский, а Canvas-страницы
+ * хранятся с langcode=en, поэтому без этой правки Google и соцсети считают
+ * страницу англоязычной.
+ */
+function kvarta_seo_preprocess_html(array &$variables): void {
+  $variables['html_attributes']->setAttribute('lang', 'ru');
+}
+
+/**
+ * Implements hook_page_attachments().
+ *
+ * На главной странице добавляем структурированные данные JSON-LD, preload для
+ * картинки первого экрана и шрифтов темы, а также theme-color. Всё это нужно
+ * потому, что Canvas рендерит компоненты на клиенте: разметку контента
+ * краулеру взять неоткуда, а машинночитаемое описание и раннюю загрузку
+ * критичных ресурсов можно дать уже сейчас.
+ */
+function kvarta_seo_page_attachments(array &$attachments): void {
+  /** @var \Drupal\Core\Path\PathMatcherInterface $path_matcher */
+  $path_matcher = \Drupal::service('path.matcher');
+  $is_canvas_page = \Drupal::routeMatch()->getParameter('canvas_page') !== NULL;
+  if (!$is_canvas_page && !$path_matcher->isFrontPage()) {
+    return;
+  }
+
+  /** @var \Drupal\kvarta_seo\PageAssets $assets */
+  $assets = \Drupal::service('kvarta_seo.page_assets');
+  $hero_image = $assets->heroImageUrl();
+
+  $attachments['#attached']['html_head'][] = [
+    [
+      '#tag' => 'script',
+      '#attributes' => ['type' => 'application/ld+json'],
+      '#value' => json_encode(
+        StructuredData::build($hero_image),
+        JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_THROW_ON_ERROR,
+      ),
+    ],
+    'kvarta_seo_structured_data',
+  ];
+
+  if ($hero_image !== NULL) {
+    // Картинка первого экрана грузится только после гидрации острова: даём
+    // браузеру знать о ней заранее и помечаем как приоритетную для LCP.
+    $attachments['#attached']['html_head'][] = [
+      [
+        '#tag' => 'link',
+        '#attributes' => [
+          'rel' => 'preload',
+          'as' => 'image',
+          'href' => $hero_image,
+          'fetchpriority' => 'high',
+        ],
+      ],
+      'kvarta_seo_hero_preload',
+    ];
+  }
+
+  foreach ($assets->fontUrls() as $index => $font_url) {
+    $attachments['#attached']['html_head'][] = [
+      [
+        '#tag' => 'link',
+        '#attributes' => [
+          'rel' => 'preload',
+          'as' => 'font',
+          'type' => 'font/ttf',
+          'href' => $font_url,
+          'crossorigin' => 'anonymous',
+        ],
+      ],
+      'kvarta_seo_font_preload_' . $index,
+    ];
+  }
+
+  $attachments['#attached']['html_head'][] = [
+    [
+      '#tag' => 'meta',
+      '#attributes' => ['name' => 'theme-color', 'content' => '#30271c'],
+    ],
+    'kvarta_seo_theme_color',
+  ];
+
+  // Разметка зависит от содержимого страницы, поэтому кэшируем по её сущности.
+  $cacheable = new CacheableMetadata();
+  $cacheable->addCacheTags(['config:system.site', 'config:system.theme']);
+  $cacheable->addCacheContexts(['url.path.is_front', 'route']);
+  $cacheable->applyTo($attachments);
+}

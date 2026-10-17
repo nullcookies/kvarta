@@ -1,0 +1,8 @@
+name: 'Кварта: SEO'
+type: module
+description: 'Структурированные данные JSON-LD, sitemap.xml, preload картинки первого экрана и шрифтов для лендинга «Кварта».'
+package: Кварта
+core_version_requirement: ^11
+dependencies:
+  - drupal:system
+  - canvas:canvas
