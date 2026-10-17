@@ -1,4 +1,4 @@
-import { useEffect, useId, useRef, useState } from 'react';
+import { useEffect, useId, useLayoutEffect, useRef, useState } from 'react';
 import { cva } from 'class-variance-authority';
 import { cn, FormattedText } from 'drupal-canvas';
 
@@ -92,6 +92,74 @@ const statusVariants = cva('mt-6 border px-4 py-3 text-sm', {
 /** Только цифры: +375 (29) 123-45-67 → 375291234567. */
 const digitsOnly = (value) => String(value ?? '').replace(/\D/g, '');
 
+/** Постоянный префикс маски — код страны. Поле всегда начинается с него. */
+const PHONE_PREFIX = '+375 ';
+
+/** Разбивает национальные цифры в «(29) 123-45-67» по мере ввода. */
+const formatNational = (digits) => {
+  const value = digits.slice(0, 9);
+
+  if (!value) {
+    return '';
+  }
+
+  let out = `(${value.slice(0, 2)}`;
+
+  if (value.length >= 2) {
+    out += ') ';
+  }
+  if (value.length > 2) {
+    out += value.slice(2, 5);
+  }
+  if (value.length > 5) {
+    out += `-${value.slice(5, 7)}`;
+  }
+  if (value.length > 7) {
+    out += `-${value.slice(7, 9)}`;
+  }
+
+  return out;
+};
+
+/**
+ * Достаёт 9 национальных цифр из всего, что ввёл человек: отбрасывает код
+ * страны (375) и код выхода (80/0), остальное маска расставит сама.
+ */
+const nationalDigits = (value) => {
+  let digits = digitsOnly(value);
+
+  // Код страны убираем всегда, а если он оказался в значении дважды (префикс
+  // маски плюс вставленный номер), снимаем повторы. Национальный номер не
+  // начинается на 375, поэтому лишнее вхождение — точно код страны.
+  if (digits.startsWith('375')) {
+    digits = digits.slice(3);
+  }
+  while (digits.startsWith('375') && digits.length > 9) {
+    digits = digits.slice(3);
+  }
+
+  if (digits.length > 9 && digits.startsWith('80')) {
+    digits = digits.slice(2);
+  } else if (digits.length > 9 && digits.startsWith('0')) {
+    digits = digits.slice(1);
+  }
+
+  return digits.slice(0, 9);
+};
+
+/** Полное значение поля по национальным цифрам. Без цифр — поле пустое. */
+const formatPhone = (digits) =>
+  digits ? `${PHONE_PREFIX}${formatNational(digits)}` : '';
+
+/**
+ * Позиция каретки сразу после n-й национальной цифры: считаем длину маски для
+ * уже введённой части, поэтому курсор не прыгает в конец на каждой скобке.
+ */
+const caretAfterDigits = (digits, count) =>
+  digits
+    ? PHONE_PREFIX.length + formatNational(digits.slice(0, count)).length
+    : 0;
+
 /**
  * Приводит белорусский номер к каноническому виду +375XXXXXXXXX.
  * Принимает +375XXXXXXXXX, 375XXXXXXXXX, 80XXXXXXXXX, 0XXXXXXXXX и 9 цифр.
@@ -100,7 +168,8 @@ const digitsOnly = (value) => String(value ?? '').replace(/\D/g, '');
 const normalizePhone = (value) => {
   const digits = digitsOnly(value);
 
-  if (!digits) {
+  // Поле с одним лишь префиксом маски (+375) считаем пустым.
+  if (!digits || digits === '375') {
     return { error: PHONE_ERRORS.required };
   }
 
@@ -246,6 +315,8 @@ const LeadForm = ({
   const inFlight = useRef(false);
   const statusRef = useRef(null);
   const fieldRefs = useRef({});
+  // Позиция каретки, которую надо восстановить после переформатирования маски.
+  const pendingCaret = useRef(null);
 
   const [attribution] = useState(collectAttribution);
   const [values, setValues] = useState({
@@ -272,6 +343,18 @@ const LeadForm = ({
     }
   }, [phase, status]);
 
+  // Возвращаем каретку на прежнее место: маска добавляет скобки и дефисы,
+  // из-за чего без этого курсор уезжал бы в конец строки.
+  useLayoutEffect(() => {
+    const node = fieldRefs.current.phone;
+
+    if (node && pendingCaret.current !== null) {
+      const position = Math.min(pendingCaret.current, node.value.length);
+      node.setSelectionRange(position, position);
+      pendingCaret.current = null;
+    }
+  }, [values.phone]);
+
   const registerField = (name) => (node) => {
     fieldRefs.current[name] = node;
   };
@@ -292,6 +375,54 @@ const LeadForm = ({
     if (phase === 'invalid') {
       setPhase('idle');
       setStatus('');
+    }
+  };
+
+  // Меняем только значение телефона — без побочных эффектов updateField,
+  // чтобы постановка/снятие префикса маски не сбрасывала ошибку валидации.
+  const setPhoneValue = (value) => {
+    setValues((current) => ({ ...current, phone: value }));
+  };
+
+  const handlePhoneChange = (event) => {
+    const input = event.target;
+    const raw = input.value;
+    const caret = input.selectionStart ?? raw.length;
+    const previous = values.phone;
+
+    let digits = nationalDigits(raw);
+    let caretCount = nationalDigits(raw.slice(0, caret)).length;
+
+    // Удаление одного разделителя: строка стала короче, но цифр столько же —
+    // значит, стёрли скобку/дефис, поэтому убираем и цифру слева от каретки.
+    const previousDigits = nationalDigits(previous);
+    if (
+      raw.length < previous.length &&
+      digits.length === previousDigits.length &&
+      digits.length > 0
+    ) {
+      const removeAt = Math.max(0, caretCount - 1);
+      digits =
+        previousDigits.slice(0, removeAt) + previousDigits.slice(removeAt + 1);
+      caretCount = removeAt;
+    }
+
+    updateField('phone', formatPhone(digits));
+    pendingCaret.current = caretAfterDigits(digits, caretCount);
+  };
+
+  // Пустое поле при фокусе сразу показывает префикс, чтобы был виден +375.
+  const handlePhoneFocus = () => {
+    if (!values.phone) {
+      setPhoneValue(PHONE_PREFIX);
+      pendingCaret.current = PHONE_PREFIX.length;
+    }
+  };
+
+  // Без цифр не оставляем в поле голый префикс.
+  const handlePhoneBlur = () => {
+    if (!nationalDigits(values.phone)) {
+      setPhoneValue('');
     }
   };
 
@@ -470,7 +601,9 @@ const LeadForm = ({
             id={fieldId('phone')}
             inputMode="tel"
             name="phone"
-            onChange={(event) => updateField('phone', event.target.value)}
+            onBlur={handlePhoneBlur}
+            onChange={handlePhoneChange}
+            onFocus={handlePhoneFocus}
             placeholder="+375 (29) 123-45-67"
             ref={registerField('phone')}
             required
